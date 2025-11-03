@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gracewell Inc. | Medical & Surgical Supplies</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#1F2937', // Dark Text
+              'secondary': '#77B953', // Original Green Logo
+              'accent': '#D4F578', // Light Green Accent from new design
+              'light-bg': '#F9FAFB',
+              'dark-text': '#111827',
+              'light-text': '#6B7280',
+            },
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        #product-modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #product-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        #product-modal .modal-panel {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #product-modal.is-open .modal-panel {
+            opacity: 1;
+            transform: scale(1);
+        }
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobile-menu.is-open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-dark-text">
+
+    <div class="bg-primary text-white text-sm hidden md:block">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+        <div class="flex items-center gap-6">
+            <a href="tel:+18483843143" class="flex items-center gap-2 hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
+            </svg>
+            <span>+1 (848) 384-3143</span>
+            </a>
+            <a href="mailto:Contactgracewell@gmail.com" class="flex items-center gap-2 hover:text-accent transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            <span>Contactgracewell@gmail.com</span>
+            </a>
+        </div>
+        <div>
+            <span>Your Trusted Partner in Medical Supplies</span>
+        </div>
+        </div>
+    </div>
+
+    <header id="main-header" class="sticky top-0 z-40 transition-all duration-300 bg-light-bg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="#home" class="flex items-center">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="text-base font-medium text-light-text hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="text-base font-medium text-light-text hover:text-primary transition-colors">About</a>
+                <a href="#mission-values" class="text-base font-medium text-light-text hover:text-primary transition-colors">Mission</a>
+                <a href="#products" class="text-base font-medium text-light-text hover:text-primary transition-colors">Products</a>
+                <a href="#contact" class="text-base font-medium text-light-text hover:text-primary transition-colors">Contact</a>
+            </nav>
+            
+            <div class="hidden lg:flex items-center">
+                <a href="#products" class="inline-block bg-accent text-primary font-bold py-3 px-6 rounded-full shadow-sm text-base hover:bg-opacity-80 transition-colors">
+                    View Products
+                </a>
+            </div>
+
+            <div class="lg:hidden">
+                <button id="menu-open-btn" class="text-dark-text" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white lg:hidden">
+        <div class="flex justify-between items-center p-4 border-b">
+            <a href="#home" class="flex items-center">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+            </a>
+            <button id="menu-close-btn" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center space-y-6 p-8">
+            <a href="#home" class="text-2xl font-semibold text-dark-text hover:text-primary mobile-nav-link">Home</a>
+            <a href="#about" class="text-2xl font-semibold text-dark-text hover:text-primary mobile-nav-link">About</a>
+            <a href="#mission-values" class="text-2xl font-semibold text-dark-text hover:text-primary mobile-nav-link">Mission</a>
+            <a href="#products" class="text-2xl font-semibold text-dark-text hover:text-primary mobile-nav-link">Products</a>
+            <a href="#contact" class="text-2xl font-semibold text-dark-text hover:text-primary mobile-nav-link">Contact</a>
+            <a href="#products" class="mt-4 inline-block bg-accent text-primary font-bold py-4 px-10 rounded-full shadow-lg text-lg hover:bg-opacity-80 transition-transform transform hover:scale-105 mobile-nav-link">
+                View Products
+            </a>
+        </nav>
+    </div>
+    <main>
+        <section id="home" class="relative bg-light-bg overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-104px)] py-20 lg:py-0">
+                
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-dark-text mb-6">
+                    Quality Medical
+                    <br>
+                    <span class="text-secondary">Supplies, Delivered.</span>
+                    </h1>
+                    <p class="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-light-text mb-10">
+                    Your trusted source for a comprehensive range of high-quality medical and surgical equipment. We provide reliable solutions for healthcare professionals.
+                    </p>
+                    <div class="flex justify-center lg:justify-start">
+                    <a href="#products" class="inline-block bg-accent text-primary font-bold py-4 px-10 rounded-full shadow-lg text-lg hover:bg-opacity-80 transition-transform transform hover:scale-105">
+                        Explore Our Products
+                    </a>
+                    </div>
+                </div>
+
+                <div class="relative h-[600px] hidden lg:block">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-[500px] h-full bg-accent/30 rounded-3xl transform -rotate-12"></div>
+                        <div class="absolute w-[500px] h-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+                            <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Female doctor smiling" class="w-full h-full object-cover object-center">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-20 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.pexels.com/photos/3845983/pexels-photo-3845983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical supplies on shelves" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Who We Are</h2>
+                    <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    Delivering Excellence in Healthcare Supply
+                    </p>
+                    <p class="mt-6 text-lg text-light-text">
+                    At Gracewell Inc., we are dedicated to becoming your most reliable and trusted partner in the world of medical and surgical supplies. Our mission is to provide healthcare professionals with the highest quality products, ensuring they can deliver the best possible care to their patients.
+                    </p>
+                    <p class="mt-4 text-lg text-light-text">
+                    With years of experience in the industry, we understand the critical importance of dependable supplies. We source our products from reputable manufacturers and adhere to stringent quality control standards, so you can have complete confidence in everything you purchase from us.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#products" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-primary bg-accent hover:bg-opacity-80">
+                            Explore Our Products
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="mission-values" class="py-20 lg:py-28 bg-light-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-20 lg:mb-28">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-dark-text mb-4">Our Mission</h2>
+                    <p class="text-lg text-light-text leading-relaxed">
+                    To empower healthcare providers by delivering superior medical and surgical supplies with unparalleled reliability and service. We are committed to innovation, quality, and fostering partnerships that advance patient care and improve outcomes across the globe.
+                    </p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-dark-text mb-4">Our Story</h2>
+                    <p class="text-lg text-light-text leading-relaxed">
+                    Founded on the principle of service, Gracewell Inc. began with a simple goal: to make essential medical supplies more accessible and reliable for healthcare professionals. From our humble beginnings, we have grown into a trusted national supplier, driven by a passion for excellence and an unwavering dedication to our clients' needs.
+                    </p>
+                </div>
+                </div>
+
+                <div class="text-center" data-aos="fade-up">
+                <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Core Values</h2>
+                <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    The Principles That Guide Us
+                </p>
+                </div>
+                <div class="mt-12 max-w-5xl mx-auto grid gap-10 md:grid-cols-3">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-100 h-full">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-2xl bg-accent/50 mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.75c-3.13 0-6-1.48-6-4.5V6.75a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6.75v10.5c0 3.02-2.87 4.5-6 4.5z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Integrity</h3>
+                        <p class="text-base text-light-text">We conduct our business with the highest ethical standards, ensuring transparency, honesty, and trust in all our relationships.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-100 h-full">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-2xl bg-accent/50 mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a6 6 0 006-6c0-3.314-2.686-6-6-6s-6 2.686-6 6a6 6 0 006 6zM12 18V9m0 9h.01" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 21h6v-2.25a1.5 1.5 0 00-1.5-1.5h-3a1.5 1.5 0 00-1.5 1.5V21z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Innovation</h3>
+                        <p class="text-base text-light-text">We are committed to continuous improvement, seeking out and providing the most advanced and effective medical solutions for our clients.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-100 h-full">
+                        <div class="flex items-center justify-center h-20 w-20 rounded-2xl bg-accent/50 mb-6 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Customer-Centricity</h3>
+                        <p class="text-base text-light-text">Our clients are at the heart of everything we do. We strive to understand their needs and exceed their expectations with exceptional service.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 lg:py-28 bg-white"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Commitment</h2>
+                <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    Why Choose Gracewell Inc.
+                </p>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-light-text">
+                    We are built on a foundation of principles that guide our every action.
+                </p>
+                </div>
+                <div class="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 h-full border border-gray-100">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-accent/50 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Uncompromising Quality</h3>
+                        <p class="text-base text-light-text">We ensure every product we offer meets the highest industry standards for safety, reliability, and performance. Your patients deserve nothing less.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 h-full border border-gray-100">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-accent/50 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Reliability & Trust</h3>
+                        <p class="text-base text-light-text">Count on us for consistent, on-time delivery and a seamless supply chain. We are committed to being the partner you can always depend on.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 h-full border border-gray-100">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-accent/50 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962c.51.056 1.02.082 1.535.082a9.093 9.093 0 018.667 6.162 3 3 0 01-3.344 3.994c-.94.24-1.922.372-2.94.372a9.093 9.093 0 01-8.667-6.162 3 3 0 013.344-3.994Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21L2.25 15.75l1.25-1.5L6 18l-2.25 3zM16.5 3.75L15 2.25 12 6l1.5 2.25 3-4.5z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark-text mb-3">Exceptional Customer Service</h3>
+                        <p class="text-base text-light-text">Our knowledgeable and friendly team is here to support you every step of the way, from product selection to after-sales support.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="products" class="py-20 lg:py-28 bg-light-bg"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Products</h2>
+                    <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    A Comprehensive Range of Medical Supplies
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-xl text-light-text">
+                    Explore our extensive catalog of high-quality medical equipment and supplies.
+                    </p>
+                </div>
+                
+                <div class="max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="50">
+                    <div class="relative">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search for products like 'Wheelchair' or 'Ankle Brace'..."
+                        class="w-full px-6 py-4 pl-14 text-lg border border-gray-200 rounded-full focus:ring-2 focus:ring-accent/80 focus:border-transparent transition-all shadow-sm"
+                        aria-label="Search products"
+                    />
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </div>
+                    </div>
+                </div>
+                
+                <div id="category-buttons" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+                    </div>
+
+                <div id="product-grid" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    </div>
+
+                <div id="no-products-message" class="text-center col-span-full py-12 hidden">
+                    <p class="text-xl text-light-text"></p>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 lg:py-28 bg-white"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Testimonials</h2>
+                <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    What Our Clients Say
+                </p>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-light-text">
+                    We are proud to have earned the trust of healthcare professionals across the industry.
+                </p>
+                </div>
+                <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-1">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+                        <svg class="w-12 h-12 text-accent/60 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M9.33 8.211c0-2.291-1.488-3.791-3.593-3.791H.511v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679zm18.337 0c0-2.291-1.488-3.791-3.593-3.791h-5.227v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679z" />
+                        </svg>
+                        <blockquote class="flex-grow">
+                            <p class="text-base text-light-text">"Gracewell Inc. has been a game-changer for our clinic. Their product quality is consistently excellent, and their delivery is always on time. Highly recommended!"</p>
+                        </blockquote>
+                        <footer class="mt-6">
+                            <p class="text-base font-semibold text-dark-text">Dr. Sarah Johnson</p>
+                            <p class="text-sm text-gray-500">Clinic Director, Healthpoint Medical</p>
+                        </footer>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="150">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+                        <svg class="w-12 h-12 text-accent/60 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M9.33 8.211c0-2.291-1.488-3.791-3.593-3.791H.511v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679zm18.337 0c0-2.291-1.488-3.791-3.593-3.791h-5.227v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679z" />
+                        </svg>
+                        <blockquote class="flex-grow">
+                            <p class="text-base text-light-text">"The customer service team is incredibly responsive and helpful. They go above and beyond to ensure we have the supplies we need, when we need them."</p>
+                        </blockquote>
+                        <footer class="mt-6">
+                            <p class="text-base font-semibold text-dark-text">Mark Davis</p>
+                            <p class="text-sm text-gray-500">Procurement Manager, City General Hospital</p>
+                        </footer>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col h-full">
+                        <svg class="w-12 h-12 text-accent/60 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M9.33 8.211c0-2.291-1.488-3.791-3.593-3.791H.511v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679zm18.337 0c0-2.291-1.488-3.791-3.593-3.791h-5.227v7.616h2.72v11.512h7.616V11.89c0-2.316-1.513-3.679-3.513-3.679z" />
+                        </svg>
+                        <blockquote class="flex-grow">
+                            <p class="text-base text-light-text">"Switching to Gracewell Inc. was one of the best decisions we've made. Their reliability and the quality of their surgical instruments are unmatched."</p>
+                        </blockquote>
+                        <footer class="mt-6">
+                            <p class="text-base font-semibold text-dark-text">Emily Chen</p>
+                            <p class="text-sm text-gray-500">Lead Surgeon, Oak Valley Surgical Center</p>
+                        </footer>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="py-20 lg:py-28 bg-light-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Contact Us</h2>
+                <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
+                    Get In Touch
+                </p>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-light-text">
+                    We're here to help. Contact us for questions or product information.
+                </p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6">Send us a message</h3>
+                    <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="sr-only">Full Name</label>
+                        <input type="text" name="name" id="name" placeholder="Full Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+                    </div>
+                    <div>
+                        <label for="phone" class="sr-only">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary">
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea name="message" id="message" rows="4" placeholder="Your Message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-accent text-primary font-bold py-3 px-6 rounded-full shadow-sm hover:bg-opacity-80 transition-colors">
+                        Send Message
+                        </button>
+                    </div>
+                    </form>
+                </div>
+                <div class="space-y-8 self-center">
+                    <h3 class="text-2xl font-bold">Contact Information</h3>
+                    <div class="space-y-4 text-lg text-light-text">
+                        <p>
+                            <strong>Address:</strong><br>
+                            2201 COOPERATIVE WAY STE 600<br>
+                            HERNDON VA 20171-3005
+                        </p>
+                        <p>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:+18483843143" class="text-secondary hover:underline">+1 (848) 384-3143</a>
+                        </p>
+                        <p>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:Contactgracewell@gmail.com" class="text-secondary hover:underline">Contactgracewell@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <footer class="bg-light-bg border-t border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="md:col-span-2 lg:col-span-1">
+                <a href="#home" class="flex items-center">
+                    <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+                </a>
+                <p class="mt-4 text-light-text text-sm max-w-xs">
+                Your trusted partner for a comprehensive range of high-quality medical and surgical equipment.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-base font-semibold text-dark-text tracking-wider uppercase">Quick Links</h3>
+                <ul class="mt-4 space-y-3">
+                    <li><a href="#home" class="text-light-text hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="#about" class="text-light-text hover:text-primary transition-colors">About</a></li>
+                    <li><a href="#mission-values" class="text-light-text hover:text-primary transition-colors">Mission</a></li>
+                    <li><a href="#products" class="text-light-text hover:text-primary transition-colors">Products</a></li>
+                    <li><a href="#contact" class="text-light-text hover:text-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-base font-semibold text-dark-text tracking-wider uppercase">Contact Us</h3>
+                <ul class="mt-4 space-y-3">
+                <li class="flex items-start">
+                    <span class="text-light-text text-sm">
+                    2201 COOPERATIVE WAY STE 600<br>HERNDON VA 20171-3005
+                    </span>
+                </li>
+                <li class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 flex-shrink-0 text-primary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
+                    </svg>
+                    <a href="tel:+18483843143" class="text-light-text hover:text-primary transition-colors text-sm">
+                        +1 (848) 384-3143
+                    </a>
+                </li>
+                <li class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 flex-shrink-0 text-primary">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    <a href="mailto:Contactgracewell@gmail.com" class="text-light-text hover:text-primary transition-colors break-all text-sm">
+                    Contactgracewell@gmail.com
+                    </a>
+                </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-base font-semibold text-dark-text tracking-wider uppercase">Our Commitment</h3>
+                <p class="mt-4 text-light-text text-sm">
+                    Dedicated to providing uncompromising quality, reliability, and exceptional customer service in the medical supply industry.
+                </p>
+            </div>
+            </div>
+        </div>
+        <div class="bg-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm text-gray-500">
+            <p>&copy; <span id="current-year"></span> Gracewell Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div
+        id="product-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm"
+        aria-modal="true"
+        role="dialog"
+    >
+        <div id="modal-overlay" class="absolute inset-0"></div> <div
+            class="modal-panel relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden"
+        >
+            <button
+                id="modal-close-btn"
+                class="absolute top-4 right-4 text-gray-400 hover:text-dark-text transition-colors z-10"
+                aria-label="Close product details"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="grid md:grid-cols-2 gap-0">
+                <div class="w-full h-80 md:h-full bg-gray-100">
+                    <img 
+                        id="modal-image"
+                        src="" 
+                        alt="" 
+                        class="w-full h-full object-contain" 
+                    />
+                </div>
+
+                <div class="p-8 md:p-10 flex flex-col">
+                    <h2 id="modal-name" class="text-2xl md:text-3xl font-extrabold text-dark-text mb-4">
+                        Product Name
+                    </h2>
+                    <div class="overflow-y-auto max-h-[calc(100vh-200px)] pr-2 space-y-4">
+                        <p id="modal-description" class="text-base text-light-text leading-relaxed">
+                            Product description...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Initialize AOS ---
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 120,
+            });
+
+            // --- Set Current Year in Footer ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('bg-white', 'shadow-md');
+                    header.classList.remove('bg-light-bg');
+                } else {
+                    header.classList.remove('bg-white', 'shadow-md');
+                    header.classList.add('bg-light-bg');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openMenuBtn = document.getElementById('menu-open-btn');
+            const closeMenuBtn = document.getElementById('menu-close-btn');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const openMenu = () => mobileMenu.classList.add('is-open');
+            const closeMenu = () => mobileMenu.classList.remove('is-open');
+
+            openMenuBtn.addEventListener('click', openMenu);
+            closeMenuBtn.addEventListener('click', closeMenu);
+            mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+            
+            // --- Product Section Logic ---
+
+            // Product Data (from data/productData.ts)
+            const productCategories = [
+                {
+                    category: 'CGM Systems',
+                    products: [
+                    { name: 'Dexcom CGM System', imageUrl: 'https://static.wixstatic.com/media/22e53e_01575d792adb43a6a16595bd74a1cc8d~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Real-time glucose readings without fingersticks.', description: 'The Dexcom Continuous Glucose Monitoring (CGM) System provides real-time glucose readings for patients with diabetes. It helps track glucose levels and trends without fingersticks, featuring customizable alerts and data sharing capabilities.' },
+                    { name: 'Freestyle Libre System', imageUrl: 'https://static.wixstatic.com/media/22e53e_dc9ea8282a4944edab558992753a6d72~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Painless glucose scanning with a 14-day sensor.', description: 'The Freestyle Libre is a flash glucose monitoring system that allows you to get glucose readings with a painless scan instead of a fingerprick. The water-resistant sensor is worn on the back of the upper arm and provides up to 14 days of continuous monitoring.' },
+                    { name: 'Dexcom Sensors', imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Reliable, 10-day sensors for the Dexcom CGM.', description: 'Replacement sensors for the Dexcom CGM System. Each sensor can be worn for up to 10 days, providing accurate and reliable glucose data. They are designed for easy application and comfortable wear.' },
+                    ],
+                },
+                {
+                    category: 'Orthopedic Braces',
+                    products: [
+                    { name: 'Ankle Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_924a086d18674cf281197d72d47207c1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Support and stabilization for injured or weak ankles.', description: 'Provides support and stabilization for weak, injured, or arthritic ankles. Ideal for preventing injuries during athletic activities or for post-injury recovery. Features adjustable straps for a secure, comfortable fit.' },
+                    { name: 'Elbow Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_6818890490334e429d78876ba5f757ce~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', description: 'Designed to relieve pain from conditions like tennis elbow or golfer\'s elbow. This brace applies targeted pressure to the forearm tendons, reducing strain and promoting healing. Made from breathable, lightweight materials.' },
+                    { name: 'Knee Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_76457cb2289949808e94bb1627b485f1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Hinged support for knee instability and recovery.', description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features hinged side supports for enhanced stability while allowing for natural movement. Suitable for various levels of activity.' },
+                    { name: 'Shoulder Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_b53f9a53db034e178a3f2d794ae70f1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Compression and support for rotator cuff injuries.', description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.' },
+                    { name: 'Hip Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_6d297acebd3b4b2890f1a0e92b8a7158~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Controlled compression for groin and hip flexor strains.', description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.' },
+                    { name: 'Back Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_1ede4ec9bbed46e4bad5859763fb4176~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lumbar support to relieve lower back pain.', description: 'Offers lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features adjustable compression and stabilizing supports to promote proper posture and healing.' },
+                    { name: 'Wrist Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_a5d9116384fb4659918c011a75175f77~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Stabilizing support for carpal tunnel and sprains.', description: 'Designed to stabilize the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable splint provides rigid support while soft, breathable materials ensure all-day comfort.' },
+                    ],
+                },
+                {
+                    category: 'Living Aids',
+                    products: [
+                    { name: 'Bedpans', imageUrl: 'https://static.wixstatic.com/media/22e53e_2fee033b2eca46cab4eec7fa74e99c31~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Durable and comfortable for bedridden patients.', description: 'Durable and easy-to-clean bedpan for bedridden patients. Designed with a contoured shape for comfort and a spill-proof construction for user confidence.' },
+                    { name: 'Bedpan Liners', imageUrl: 'https://static.wixstatic.com/media/22e53e_422c96a46cfd4873b36279bc94bf5bd4~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Super absorbent liners that eliminate odors.', description: 'Super absorbent liners for bedpans and commodes. Features a gelling agent that solidifies waste and eliminates odors, making cleanup simple and hygienic.' },
+                    { name: 'Portable Bedside Commodes', imageUrl: 'https://static.wixstatic.com/media/22e53e_efc1552d8050407f82ea158302d0debd~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Convenient and safe toileting for limited mobility.', description: 'A convenient and safe toileting solution for individuals with limited mobility. Features a sturdy frame, comfortable seat, and a removable bucket with a splash shield and lid.' },
+                    ],
+                },
+                {
+                    category: 'Mobility Aids',
+                    products: [
+                    { name: 'Wheelchairs', imageUrl: 'https://static.wixstatic.com/media/22e53e_facaef011f164e1fb98efad96d8bc5ca~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lightweight, durable, and comfortable design.', description: 'Lightweight and durable wheelchairs designed for comfort and ease of use. Features include padded armrests, swing-away footrests, and easy-to-propel wheels. Available in various sizes.' },
+                    { name: 'Walkers', imageUrl: 'https://static.wixstatic.com/media/22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Sturdy, adjustable, and foldable for easy transport.', description: 'Sturdy and adjustable walkers providing stable support for those who need assistance with balance and mobility. Folds easily for transport and storage.' },
+                    { name: 'Quad Cane', imageUrl: 'https://static.wixstatic.com/media/22e53e_e1b7b337b97b4dd3bb9ed68e2598dc61~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Four-point base for superior stability.', description: 'A four-point base cane that provides greater stability than a standard cane. The small base is ideal for navigating stairs and tight spaces. Height is adjustable for a custom fit.' },
+                    { name: 'Folding Cane', imageUrl: 'https://static.wixstatic.com/media/22e53e_ec22d9d4c6044e1eb996b4c86dd6af2b~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Convenient and portable for on-the-go support.', description: 'A convenient and portable mobility aid that folds into a compact size for easy storage in a purse or bag. Features a comfortable grip and adjustable height.' },
+                    { name: 'Crutches', imageUrl: 'https://static.wixstatic.com/media/22e53e_4f99aa57e6a04e6dbcdbfe474fc1654f~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lightweight aluminum with comfortable padding.', description: 'Lightweight aluminum crutches with comfortable underarm pads and handgrips. Height and handgrip positions are fully adjustable to ensure proper fit and support during recovery.' },
+                    ],
+                },
+                {
+                    category: 'Medical Supplies',
+                    products: [
+                    { name: 'Ostomy Supplies', imageUrl: 'https://static.wixstatic.com/media/22e53e_58f292496eec45eea41b21308739ae1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Secure, comfortable, and discreet ostomy solutions.', description: 'A complete range of ostomy supplies including pouches, skin barriers, and accessories. Designed for security, comfort, and discretion for individuals with a colostomy, ileostomy, or urostomy.' },
+                    { name: 'Urological Supplies', imageUrl: 'https://static.wixstatic.com/media/22e53e_7066c7318bb34be38d3a4f2e3a256021~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'High-quality catheters and leg bags.', description: 'High-quality urological supplies including intermittent catheters, Foley catheters, and leg bags. We offer products designed for safety, comfort, and ease of use.' },
+                    { name: 'Surgical Dressings', imageUrl: 'https://static.wixstatic.com/media/22e53e_f2d6c005d04646fd8bed4cffbca35c1e~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Sterile dressings to promote wound healing.', description: 'A wide variety of sterile surgical dressings for wound care management, including gauze, sponges, bandages, and tapes. Designed to promote healing and protect against infection.' },
+                    { name: 'Enteral Nutrition', imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Comprehensive supplies for tube feeding.', description: 'Comprehensive enteral feeding supplies, including feeding tubes, pumps, and nutritional formulas. We provide reliable solutions for patients who require tube feeding.' },
+                    ],
+                },
+                {
+                    category: 'Health Devices',
+                    products: [
+                    { name: 'Support Surfaces', imageUrl: 'https://static.wixstatic.com/media/22e53e_fcd691909a3742938a8cfa05c1cd2b0a~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Specialized mattresses for pressure ulcer treatment.', description: 'Specialized mattresses and overlays designed to help prevent and treat pressure ulcers (bedsores). Our support surfaces redistribute pressure, reduce friction, and manage microclimate for at-risk patients.' },
+                    { name: 'UV Light Therapy Lamp', imageUrl: 'https://static.wixstatic.com/media/22e53e_8adb0d7018b047e0a998acf987fd3fd6~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Portable device for treating skin conditions.', description: 'A portable UV light therapy device for treating various skin conditions like psoriasis, vitiligo, and eczema. Provides targeted UVB phototherapy under medical supervision.' },
+                    { name: 'Compression System', imageUrl: 'https://static.wixstatic.com/media/22e53e_4092f4f0f4d844afaed1cfde3069a6da~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Pneumatic device for lymphedema and circulation.', description: 'A pneumatic compression device used to treat lymphedema and chronic venous insufficiency. The system uses inflatable garments to gently massage limbs, increasing circulation and reducing swelling.' },
+                    { name: 'Compression Socks', imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Improve circulation and reduce leg swelling.', description: 'Graduated compression socks designed to improve circulation, reduce swelling, and relieve tired, achy legs. Ideal for travel, prolonged sitting or standing, and managing varicose veins.' }
+                    ],
+                },
+            ];
+            
+            const allProducts = productCategories.flatMap(cat => cat.products);
+            const categories = ['All', ...productCategories.map(cat => cat.category)];
+            let selectedCategory = 'All';
+            let searchQuery = '';
+
+            // DOM Elements
+            const productGrid = document.getElementById('product-grid');
+            const categoryButtonsContainer = document.getElementById('category-buttons');
+            const searchInput = document.getElementById('search-input');
+            const noProductsMessage = document.getElementById('no-products-message');
+            
+            // Modal DOM Elements
+            const productModal = document.getElementById('product-modal');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalImage = document.getElementById('modal-image');
+            const modalName = document.getElementById('modal-name');
+            const modalDescription = document.getElementById('modal-description');
+
+
+            // --- Render Functions ---
+
+            function renderCategoryButtons() {
+                categoryButtonsContainer.innerHTML = categories.map(category => `
+                    <button
+                        data-category="${category}"
+                        class="category-btn px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-semibold rounded-full transition-all duration-300
+                        ${selectedCategory === category 
+                            ? 'bg-primary text-white shadow-md' 
+                            : 'bg-gray-100 text-light-text hover:bg-gray-200 hover:text-dark-text'
+                        }"
+                    >
+                        ${category}
+                    </button>
+                `).join('');
+            }
+
+            function renderProducts() {
+                let baseProducts;
+                if (selectedCategory === 'All') {
+                    baseProducts = allProducts;
+                } else {
+                    baseProducts = productCategories.find(cat => cat.category === selectedCategory)?.products || [];
+                }
+
+                const filteredProducts = baseProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+                
+                // Show 12 products if 'All' is selected and no search query
+                let displayedProducts = (selectedCategory === 'All' && !searchQuery)
+                    ? filteredProducts.slice(0, 12)
+                    : filteredProducts;
+
+                productGrid.innerHTML = ''; // Clear existing products
+
+                if (displayedProducts.length > 0) {
+                    productGrid.style.display = 'grid';
+                    noProductsMessage.style.display = 'none';
+                    
+                    displayedProducts.forEach((product, index) => {
+                        const productCard = document.createElement('div');
+                        productCard.setAttribute('data-aos', 'fade-up');
+                        productCard.setAttribute('data-aos-delay', (index % 3) * 100);
+                        
+                        // ** MODIFIED PRODUCT CARD WITH FULL DESCRIPTION **
+                        productCard.innerHTML = `
+                            <div class="group rounded-2xl shadow-lg overflow-hidden bg-white flex flex-col h-full border border-gray-100">
+                                <div class="w-full h-64 overflow-hidden">
+                                    <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-dark-text text-xl font-bold">${product.name}</h3>
+                                    <p class="text-light-text text-base mt-2 flex-grow">
+                                        ${product.description}
+                                    </p>
+                                    <button
+                                        class="mt-6 w-full product-card-button bg-accent text-primary font-bold py-3 px-6 rounded-full shadow-sm hover:bg-opacity-80 transition-colors"
+                                        data-product-name="${product.name}"
+                                    >
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        productGrid.appendChild(productCard);
+                    });
+                } else {
+                    productGrid.style.display = 'none';
+                    noProductsMessage.style.display = 'block';
+                    noProductsMessage.querySelector('p').textContent = searchQuery
+                        ? `No products found matching "${searchQuery}".`
+                        : `There are currently no products in this category.`;
+                }
+            }
+            
+            // --- Modal Functions ---
+            
+            function openModal(product) {
+                if (!product) return;
+                
+                modalImage.src = product.imageUrl;
+                modalImage.alt = product.name;
+                modalName.textContent = product.name;
+                modalDescription.textContent = product.description;
+                
+                productModal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeModal() {
+                productModal.classList.remove('is-open');
+                document.body.style.overflow = 'unset';
+            }
+
+            // --- Event Listeners ---
+
+            // Category Button Clicks (Event Delegation)
+            categoryButtonsContainer.addEventListener('click', (e) => {
+                const button = e.target.closest('.category-btn');
+                if (!button) return;
+
+                selectedCategory = button.dataset.category;
+                
+                // Update button styles
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-gray-100', 'text-light-text', 'hover:bg-gray-200', 'hover:text-dark-text');
+                });
+                button.classList.add('bg-primary', 'text-white', 'shadow-md');
+                button.classList.remove('bg-gray-100', 'text-light-text', 'hover:bg-gray-200', 'hover:text-dark-text');
+                
+                renderProducts();
+            });
+
+            // Search Input
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderProducts();
+            });
+            
+            // Product Card Button Clicks (Event Delegation)
+            productGrid.addEventListener('click', (e) => {
+                const button = e.target.closest('.product-card-button');
+                if (!button) return;
+                
+                const productName = button.dataset.productName;
+                const product = allProducts.find(p => p.name === productName);
+                openModal(product);
+            });
+            
+            // Modal Close Listeners
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && productModal.classList.contains('is-open')) {
+                    closeModal();
+                }
+            });
+
+            // --- Initial Render ---
+            renderCategoryButtons();
+            renderProducts();
+
+        });
+    </script>
+
+</body>
+</html>
