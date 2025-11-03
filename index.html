@@ -87,9 +87,9 @@
 
     <header id="main-header" class="sticky top-0 z-40 transition-all duration-300 bg-light-bg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-36">
+        <div class="flex justify-between items-center h-24">
             <a href="#home" class="flex items-center">
-                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-30 w-auto">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-16 w-auto">
             </a>
 
             <nav class="hidden lg:flex items-center space-x-8">
@@ -120,7 +120,7 @@
     <div id="mobile-menu" class="fixed inset-0 z-50 bg-white lg:hidden">
         <div class="flex justify-between items-center p-4 border-b">
             <a href="#home" class="flex items-center">
-                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-30 w-auto">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-16 w-auto">
             </a>
             <button id="menu-close-btn" aria-label="Close menu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -142,7 +142,7 @@
     <main>
         <section id="home" class="relative bg-light-bg overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-180px)] py-20 lg:py-0">
+                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-120px)] py-20 lg:py-0">
                 
                 <div class="text-center lg:text-left">
                     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-dark-text mb-6">
@@ -712,7 +712,7 @@
                     shortDescription: 'Compression and support for rotator cuff injuries.', 
                     description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.',
                     sku: 'OB-SHL-004',
-                    availability: 'InStock',
+                    availability: 'In Stock',
                     features: [
                         'Provides compression and stability',
                         'Adjustable chest and bicep straps',
@@ -1051,64 +1051,7 @@
                   },
                   { 
                     name: 'Enteral Nutrition', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Comprehensive supplies for tube feeding.', 
-                    description: 'Comprehensive enteral feeding supplies, including feeding tubes, pumps, and nutritional formulas. We provide reliable solutions for patients who require tube feeding.',
-                    sku: 'MS-ENT-VAR',
-                    availability: 'In Stock',
-                    features: [
-                        'Enteral feeding pumps and gravity bag sets.',
-                        'NG-tubes, G-tubes, and J-tubes.',
-                        'Wide range of nutritional formulas (e.g., Jevity, Ensure).',
-                        'Sterile water and feeding syringes.'
-                    ],
-                    specifications: [
-                        { key: 'Supplies', value: 'Pumps, feeding sets, tubes, syringes' },
-                        { key: 'Formulas', value: 'Nestle, Abbott, and other major brands' },
-                        { key: 'Request', value: 'Please contact us for specific formula or equipment needs.' }
-                    ]
-                  },
-                ],
-              },
-              {
-                category: 'Health Devices',
-                products: [
-                  { 
-                    name: 'Support Surfaces', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_fcd691909a3742938a8cfa05c1cd2b0a~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Specialized mattresses for pressure ulcer treatment.', 
-                    description: 'Specialized mattresses and overlays designed to help prevent and treat pressure ulcers (bedsores). Our support surfaces redistribute pressure, reduce friction, and manage microclimate for at-risk patients.',
-                    sku: 'HD-MAT-001',
-                    availability: 'In Stock',
-                    features: [
-                        'Pressure redistribution foam and/or alternating air cells.',
-                        'Helps prevent and treat Stage I-IV pressure ulcers.',
-                        'Vapor-permeable, waterproof covers.',
-                        'Low-air-loss and alternating pressure options.'
-                    ],
-                    specifications: [
-                        { key: 'Type', value: 'Foam, Alternating Pressure, Low Air Loss' },
-                        { key: 'Use With', value: 'Standard hospital beds' },
-                        { key: 'Weight Capacity', value: '300-500 lbs (model dependent)' }
-                    ]
-                  },
-                  { 
-                    name: 'UV Light Therapy Lamp', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_8adb0d7018b047e0a998acf987fd3fd6~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Portable device for treating skin conditions.', 
-                    description: 'A portable UV light therapy device for treating various skin conditions like psoriasis, vitiligo, and eczema. Provides targeted UVB phototherapy under medical supervision.',
-                    sku: 'HD-UVL-002',
-                    availability: 'In Stock',
-                    features: [
-                        'Provides targeted Narrowband UVB (Nb-UVB) phototherapy.',
-                        'Integrated comb attachment for scalp treatment.',
-                        'Lightweight and portable for home use.',
-                        'Requires prescription and medical supervision.'
-                    ],
-                    specifications: [
-                        { key: 'Lamp Type', value: 'Narrowband UVB (311nm)' },
-                        { key: 'Use For', value: 'Psoriasis, Vitiligo, Eczema' },
-                        { key: 'Warning', value: 'Use only under medical direction' }
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1key: "Warning", value: "Use only under medical direction" }
                     ]
                   },
                   { 
