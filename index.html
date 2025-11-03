@@ -24,7 +24,10 @@
             },
             fontFamily: {
               sans: ['Manrope', 'sans-serif'],
-            }
+            },
+            aspectRatio: {
+                square: '1 / 1',
+            },
           }
         }
       }
@@ -1233,10 +1236,10 @@
                         productCard.setAttribute('data-aos', 'fade-up');
                         productCard.setAttribute('data-aos-delay', (index % 4) * 100);
                         
-                        // --- REVERTED Product Card to cleaner teaser view ---
+                        // --- UPDATED Product Card for Square Aspect Ratio ---
                         productCard.innerHTML = `
                           <button class="product-card-button group relative overflow-hidden rounded-2xl shadow-lg text-left w-full h-full" data-product-name="${product.name}">
-                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full aspect-square object-cover transform group-hover:scale-110 transition-transform duration-500" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 transition-all duration-300"></div>
                             <div class="absolute inset-0 flex items-end p-6">
                               <div>
