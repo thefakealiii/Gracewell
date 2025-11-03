@@ -87,9 +87,9 @@
 
     <header id="main-header" class="sticky top-0 z-40 transition-all duration-300 bg-light-bg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
+        <div class="flex justify-between items-center h-36">
             <a href="#home" class="flex items-center">
-                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-30 w-auto">
             </a>
 
             <nav class="hidden lg:flex items-center space-x-8">
@@ -120,7 +120,7 @@
     <div id="mobile-menu" class="fixed inset-0 z-50 bg-white lg:hidden">
         <div class="flex justify-between items-center p-4 border-b">
             <a href="#home" class="flex items-center">
-                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+                <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-30 w-auto">
             </a>
             <button id="menu-close-btn" aria-label="Close menu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -142,7 +142,7 @@
     <main>
         <section id="home" class="relative bg-light-bg overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-104px)] py-20 lg:py-0">
+                <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-180px)] py-20 lg:py-0">
                 
                 <div class="text-center lg:text-left">
                     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-dark-text mb-6">
@@ -164,7 +164,7 @@
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-[500px] h-full bg-accent/30 rounded-3xl transform -rotate-12"></div>
                         <div class="absolute w-[500px] h-full bg-white rounded-3xl shadow-2xl overflow-hidden">
-                            <img src="https://images.pexels.com/photos/7203670/pexels-photo-7203670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Person applying an orthopedic knee brace" class="w-full h-full object-cover object-center">
+                            <img src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg" alt="Medical professional with boxes of supplies" class="w-full h-full object-cover object-center">
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div data-aos="fade-right">
-                    <img src="https://images.pexels.com/photos/3845983/pexels-photo-3845983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical supplies on shelves" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                    <img src="https://images.pexels.com/photos/3913020/pexels-photo-3913020.jpeg" alt="Professional fitting an orthopedic ankle brace" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
                 </div>
                 <div data-aos="fade-left">
                     <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Who We Are</h2>
@@ -471,7 +471,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="md:col-span-2 lg:col-span-1">
                 <a href="#home" class="flex items-center">
-                    <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-10 w-auto">
+                    <img src="https://i.ibb.co/JLWgwd3/gracewell-logo-page-0001.png" alt="Gracewell Inc. Logo" class="h-30 w-auto">
                 </a>
                 <p class="mt-4 text-light-text text-sm max-w-xs">
                 Your trusted partner for a comprehensive range of high-quality medical and surgical equipment.
@@ -641,105 +641,43 @@
             
             // --- Product Section Logic ---
 
-            // --- UPGRADED Product Data ---
+            // --- UPDATED Product Data ---
             const productCategories = [
-              {
-                category: 'CGM Systems',
-                products: [
-                  { 
-                    name: 'Dexcom CGM System', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_01575d792adb43a6a16595bd74a1cc8d~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Real-time glucose readings without fingersticks.', 
-                    description: 'The Dexcom Continuous Glucose Monitoring (CGM) System provides real-time glucose readings for patients with diabetes. It helps track glucose levels and trends without fingersticks, featuring customizable alerts and data sharing capabilities.',
-                    sku: 'CGM-DEX-G6',
-                    availability: 'In Stock',
-                    features: [
-                        'Real-time glucose readings sent to your smart device.',
-                        'No fingersticks required for calibration or diabetes treatment decisions.',
-                        'Customizable high and low glucose alerts.',
-                        'Share glucose data with up to 10 followers.'
-                    ],
-                    specifications: [
-                        { key: 'Sensor Wear Time', value: 'Up to 10 days' },
-                        { key: 'Water Resistance', value: 'IP68: 8 ft for 24 hours' },
-                        { key: 'Compatibility', value: 'iOS and Android smart devices (check compatibility list)' }
-                    ]
-                  },
-                  { 
-                    name: 'Freestyle Libre System', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_dc9ea8282a4944edab558992753a6d72~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Painless glucose scanning with a 14-day sensor.', 
-                    description: 'The Freestyle Libre is a flash glucose monitoring system that allows you to get glucose readings with a painless scan instead of a fingerprick. The water-resistant sensor is worn on the back of the upper arm and provides up to 14 days of continuous monitoring.',
-                    sku: 'CGM-FSL-14D',
-                    availability: 'In Stock',
-                    features: [
-                        'Painless 1-second scan to get glucose readings.',
-                        'Stores 8 hours of glucose data.',
-                        'Water-resistant sensor for up to 14 days of wear.',
-                        'No fingerstick calibration required.'
-                    ],
-                    specifications: [
-                        { key: 'Sensor Wear Time', value: 'Up to 14 days' },
-                        { key: 'Water Resistance', value: 'IP68: 3 ft for 30 minutes' },
-                        { key: 'Data Storage', value: '8 hours (must scan every 8 hours)' }
-                    ]
-                  },
-                  { 
-                    name: 'Dexcom Sensors', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Reliable, 10-day sensors for the Dexcom CGM.', 
-                    description: 'Replacement sensors for the Dexcom CGM System. Each sensor can be worn for up to 10 days, providing accurate and reliable glucose data. They are designed for easy application and comfortable wear.',
-                    sku: 'CGM-DEX-S3',
-                    availability: 'In Stock',
-                    features: [
-                        'Simple auto-applicator for easy sensor insertion.',
-                        '10-day wear time per sensor.',
-                        'Accurate and reliable glucose readings.',
-                        'Pack of 3 sensors (30-day supply).'
-                    ],
-                    specifications: [
-                        { key: 'Pack Quantity', value: '3 sensors' },
-                        { key: 'Use With', value: 'Dexcom G6 CGM System' },
-                        { key: 'Wear Time', value: 'Up to 10 days per sensor' }
-                    ]
-                  },
-                ],
-              },
               {
                 category: 'Orthopedic Braces',
                 products: [
                   { 
                     name: 'Ankle Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_924a086d18674cf281197d72d47207c1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Support and stabilization for injured or weak ankles.', 
-                    description: 'Provides support and stabilization for weak, injured, or arthritic ankles. Ideal for preventing injuries during athletic activities or for post-injury recovery. Features adjustable straps for a secure, comfortable fit.',
+                    imageUrl: 'https://m.media-amazon.com/images/I/81I-5-e1-2L._AC_SL1500_.jpg', 
+                    shortDescription: 'Lace-up support with stabilizing straps.', 
+                    description: 'Provides medial and lateral support to weak or injured ankles. Lace-up design with figure-8 straps mimics athletic taping for maximum stabilization.',
                     sku: 'OB-ANK-001',
                     availability: 'In Stock',
                     features: [
-                        'Provides moderate support and stabilization.',
-                        'Adjustable straps for a custom, secure fit.',
-                        'Lightweight and breathable material for all-day comfort.',
-                        'Fits easily inside most shoes.'
+                        'Lace-up design for a secure, custom fit',
+                        'Figure-8 straps for inversion/eversion control',
+                        'Low-profile, fits in most shoes',
+                        'Durable ballistic nylon construction'
                     ],
                     specifications: [
-                        { key: 'Ideal for', value: 'Ankle sprains, instability, post-injury recovery, arthritis' },
-                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
-                        { key: 'Material', value: 'Latex-free Neoprene blend' },
+                        { key: 'Ideal for', value: 'Chronic ankle instability, recovery from high ankle sprains, prophylactic use' },
+                        { key: 'Sizing', value: 'S, M, L (Based on shoe size)' },
+                        { key: 'Material', value: 'Ballistic Nylon, Polyester' },
                         { key: 'Care', value: 'Hand wash cold, air dry' }
                     ]
                   },
                   { 
                     name: 'Elbow Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_6818890490334e429d78876ba5f757ce~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71aD-tPlc6L._AC_SL1500_.jpg', 
                     shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', 
-                    description: 'Designed to relieve pain from conditions like tennis elbow or golfer\'s elbow. This brace applies targeted pressure to the forearm tendons, reducing strain and promoting healing. Made from breathable, lightweight materials.',
+                    description: 'Designed to relieve pain from tennis or golfer\'s elbow. A compression pad applies targeted pressure to the forearm tendons, reducing strain and promoting healing.',
                     sku: 'OB-ELB-002',
                     availability: 'In Stock',
                     features: [
-                        'Applies targeted pressure to relieve tendon pain.',
-                        'Adjustable strap for customized compression.',
-                        'Breathable, lightweight materials for comfort.',
-                        'Low-profile design fits under clothing.'
+                        'Targeted compression pad for pain relief',
+                        'Adjustable hook-and-loop strap',
+                        'Breathable, moisture-wicking material',
+                        'Low-profile, can be worn during activity'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Tennis Elbow (Lateral Epicondylitis), Golfer\'s Elbow (Medial Epicondylitis)' },
@@ -749,37 +687,37 @@
                     ]
                   },
                   { 
-                    name: 'Knee Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_76457cb2289949808e94bb1627b485f1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    name: 'Hinged Knee Brace', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71p+g-s-FKL._AC_SL1500_.jpg', 
                     shortDescription: 'Hinged support for knee instability and recovery.', 
-                    description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features hinged side supports for enhanced stability while allowing for natural movement. Suitable for various levels of activity.',
+                    description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features heavy-duty polycentric hinges for enhanced stability while allowing for natural movement.',
                     sku: 'OB-KNE-003H',
                     availability: 'In Stock',
                     features: [
-                        'Dual-axis hinges for medial and lateral stability.',
-                        'Open patella design relieves pressure on the kneecap.',
-                        'Adjustable straps for compression and secure fit.',
-                        'Helps control hyperextension of the knee.'
+                        'Removable polycentric hinges for medial/lateral support',
+                        'Open patella design with buttress',
+                        'Adjustable straps for compression',
+                        'Helps control hyperextension'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Ligament injuries (ACL, PCL, MCL), knee instability, post-op recovery' },
-                        { key: 'Sizing', value: 'Available in S, M, L, XL (Measure circumference of thigh)' },
+                        { key: 'Sizing', value: 'S, M, L, XL (Measure circumference of thigh)' },
                         { key: 'Material', value: 'Latex-free Neoprene, Aluminum hinges' },
                         { key: 'Care', value: 'Hand wash cold (remove hinges), air dry' }
                     ]
                   },
                   { 
                     name: 'Shoulder Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_b53f9a53db034e178a3f2d794ae70f1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71S-j+TqGKL._AC_SL1500_.jpg', 
                     shortDescription: 'Compression and support for rotator cuff injuries.', 
                     description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.',
                     sku: 'OB-SHL-004',
-                    availability: 'In Stock',
+                    availability: 'InStock',
                     features: [
-                        'Provides compression and stability for the shoulder joint.',
-                        'Helps reduce pain from rotator cuff injuries or dislocations.',
-                        'Adjustable chest and arm straps for a secure fit.',
-                        'Can be worn on left or right shoulder.'
+                        'Provides compression and stability',
+                        'Adjustable chest and bicep straps',
+                        'Includes pocket for hot/cold packs (pack not included)',
+                        'Fits left or right shoulder'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Rotator cuff tears, shoulder instability, dislocations, bursitis' },
@@ -790,16 +728,16 @@
                   },
                   { 
                     name: 'Hip Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_6d297acebd3b4b2890f1a0e92b8a7158~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71Y-C8-q0FL._AC_SL1500_.jpg', 
                     shortDescription: 'Controlled compression for groin and hip flexor strains.', 
                     description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.',
                     sku: 'OB-HIP-005',
                     availability: 'In Stock',
                     features: [
-                        'Provides targeted compression for hip, groin, and upper thigh.',
-                        'Adjustable waistband and thigh strap for custom fit.',
-                        'Neoprene material retains therapeutic heat to promote healing.',
-                        'Can be worn on left or right leg.'
+                        'Covers hip, groin, and upper thigh',
+                        'Adjustable non-slip waistband',
+                        'Neoprene blend retains therapeutic heat',
+                        'Fits left or right leg'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Groin strains, hip flexor injuries, hamstring or quad pulls, sciatica' },
@@ -810,16 +748,16 @@
                   },
                   { 
                     name: 'Back Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1ede4ec9bbed46e4bad5859763fb4176~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71qI-yUIQOL._AC_SL1500_.jpg', 
                     shortDescription: 'Lumbar support to relieve lower back pain.', 
-                    description: 'Offers lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features adjustable compression and stabilizing supports to promote proper posture and healing.',
+                    description: 'Offers firm lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features removable lumbar pad and dual adjustable compression straps.',
                     sku: 'OB-BAK-006L',
                     availability: 'In Stock',
                     features: [
-                        'Provides firm support to the lumbar (lower back) region.',
-                        'Internal stabilizing stays to help maintain posture.',
-                        'Dual adjustable straps for customized compression.',
-                        'Breathable mesh panels for comfort.'
+                        'Removable lumbar support pad',
+                        'Dual adjustable straps for customized compression',
+                        'Breathable mesh panels',
+                        'Vertical support stays for added stability'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Lower back pain, muscle strains, sprains, sciatica' },
@@ -829,17 +767,17 @@
                     ]
                   },
                   { 
-                    name: 'Wrist Brace', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_a5d9116384fb4659918c011a75175f77~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    name: 'Wrist Splint', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71s-2-Fwz9L._AC_SL1500_.jpg', 
                     shortDescription: 'Stabilizing support for carpal tunnel and sprains.', 
-                    description: 'Designed to stabilize the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable splint provides rigid support while soft, breathable materials ensure all-day comfort.',
+                    description: 'Designed to stabilize and support the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable palmar splint provides rigid support while soft, breathable materials ensure all-day comfort.',
                     sku: 'OB-WRI-007',
                     availability: 'In Stock',
                     features: [
-                        'Removable aluminum splint provides rigid stabilization.',
-                        'Adjustable straps for a secure, comfortable fit.',
-                        'Breathable, lightweight material.',
-                        'Available in Left and Right hand models.'
+                        'Removable, contoured palmar splint',
+                        'Adjustable straps for custom fit',
+                        'Breathable, lightweight materials',
+                        'Available in Left and Right models'
                     ],
                     specifications: [
                         { key: 'Ideal for', value: 'Carpal Tunnel Syndrome, sprains, strains, arthritis, tendonitis' },
@@ -848,30 +786,68 @@
                         { key: 'Care', value: 'Hand wash cold (remove splint), air dry' }
                     ]
                   },
+                  { 
+                    name: 'Cervical Collar', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/7198e-PC-VL._AC_SL1500_.jpg', 
+                    shortDescription: 'Soft foam collar for neck support and pain relief.', 
+                    description: 'Provides gentle support to the cervical spine, helping to relieve pain from neck strains, sprains, or whiplash. Made from soft, contoured foam for comfort.',
+                    sku: 'OB-CER-008',
+                    availability: 'In Stock',
+                    features: [
+                        'Soft, breathable foam construction',
+                        'Contoured design for comfortable fit',
+                        'Adjustable Velcro closure',
+                        'Helps limit motion and provides support'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Minor neck strains, sprains, whiplash, post-op support' },
+                        { key: 'Sizing', value: 'Universal (Adjustable) or S, M, L' },
+                        { key: 'Material', value: 'Soft Polyurethane Foam' }
+                    ]
+                  },
+                  { 
+                    name: 'Clavicle Brace', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71-j-b-jSQL._AC_SL1500_.jpg', 
+                    shortDescription: 'Figure-8 brace for posture correction and clavicle fractures.', 
+                    description: 'A figure-8 brace designed to help correct poor posture or provide support for clavicle (collarbone) fractures. It gently pulls the shoulders back to align the clavicle.',
+                    sku: 'OB-CLA-009',
+                    availability: 'In Stock',
+                    features: [
+                        'Figure-8 design for posture correction',
+                        'Padded straps for comfort',
+                        'Adjustable D-rings for custom fit',
+                        'Can be worn discreetly under clothing'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Posture correction, clavicle fractures, sprains' },
+                        { key: 'Sizing', value: 'S, M, L (Measure chest circumference)' },
+                        { key: 'Material', value: 'Foam, Nylon, Cotton' }
+                    ]
+                  },
+                  { 
+                    name: 'Thumb Spica Splint', 
+                    imageUrl: 'https://m.media-amazon.com/images/I/71xGL-W9-JL._AC_SL1500_.jpg', 
+                    shortDescription: 'Immobilizes the thumb for sprains or De Quervain\'s.', 
+                    description: 'Immobilizes the thumb joint (CMC and MCP) while allowing other fingers to move freely. Ideal for thumb sprains, De Quervain\'s tenosynovitis, and arthritis.',
+                    sku: 'OB-THM-010',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides rigid immobilization for the thumb',
+                        'Two removable splints (palmar and thumb)',
+                        'Adjustable straps for secure fit',
+                        'Breathable material for comfort'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Thumb sprains, De Quervain\'s, arthritis, tendonitis' },
+                        { key: 'Sizing', value: 'Universal Fit (Left or Right hand specific)' },
+                        { key: 'Material', value: 'Neoprene blend, Aluminum splints' }
+                    ]
+                  },
                 ],
               },
               {
                 category: 'Living Aids',
                 products: [
-                  { 
-                    name: 'Bedpans', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_2fee033b2eca46cab4eec7fa74e99c31~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Durable and comfortable for bedridden patients.', 
-                    description: 'Durable and easy-to-clean bedpan for bedridden patients. Designed with a contoured shape for comfort and a spill-proof construction for user confidence.',
-                    sku: 'LA-BDP-001',
-                    availability: 'In Stock',
-                    features: [
-                        'Contoured shape for patient comfort.',
-                        'Durable, heavy-duty molded plastic.',
-                        'Easy to clean and sanitize.',
-                        'Built-in handle for transport.'
-                    ],
-                    specifications: [
-                        { key: 'Material', value: 'Autoclavable Polypropylene' },
-                        { key: 'Weight Capacity', value: '250 lbs' },
-                        { key: 'Color', value: 'Grey' }
-                    ]
-                  },
                   { 
                     name: 'Bedpan Liners', 
                     imageUrl: 'https://static.wixstatic.com/media/22e53e_422c96a46cfd4873b36279bc94bf5bd4~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
@@ -1331,8 +1307,6 @@
                 // Set Quote Button Link
                 modalQuoteBtn.onclick = () => {
                     closeModal(); // Close modal first
-                    // You can optionally pre-fill the contact form here if you want
-                    // For now, it just closes the modal and the link's href="#contact" will scroll
                 };
                 
                 productModal.classList.add('is-open');
