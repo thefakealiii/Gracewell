@@ -316,10 +316,10 @@
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Products</h2>
                     <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
-                    A Comprehensive Range of Medical Supplies
+                    Our Specialized Orthopedic Braces
                     </p>
                     <p class="mt-4 max-w-2xl mx-auto text-xl text-light-text">
-                    Explore our extensive catalog of high-quality medical equipment and supplies.
+                    Explore our focused catalog of high-quality orthopedic supports.
                     </p>
                 </div>
                 
@@ -328,7 +328,7 @@
                     <input
                         type="text"
                         id="search-input"
-                        placeholder="Search for products like 'Wheelchair' or 'Ankle Brace'..."
+                        placeholder="Search for products like 'Knee Brace' or 'Ankle Brace'..."
                         class="w-full px-6 py-4 pl-14 text-lg border border-gray-200 rounded-full focus:ring-2 focus:ring-accent/80 focus:border-transparent transition-all shadow-sm"
                         aria-label="Search products"
                     />
@@ -552,17 +552,26 @@
                 </svg>
             </button>
 
-            <div class="grid md:grid-cols-5 gap-0">
-                <div class="md:col-span-2 w-full h-80 md:h-full bg-gray-100">
-                    <img 
-                        id="modal-image"
-                        src="" 
-                        alt="" 
-                        class="w-full h-full object-contain" 
-                    />
+            <div class="grid md:grid-cols-2 gap-0">
+            
+                <div class="p-6 md:p-8 max-h-[80vh] overflow-y-auto">
+                    <div class="w-full aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                        <img 
+                            id="modal-image"
+                            src="" 
+                            alt="" 
+                            class="w-full h-full object-contain" 
+                        />
+                    </div>
+                    
+                    <div class="pt-6">
+                        <h3 class="text-lg font-bold text-dark-text mb-3">Specifications</h3>
+                        <dl id="modal-specs-list" class="divide-y divide-gray-200">
+                            </dl>
+                    </div>
                 </div>
-
-                <div class="md:col-span-3 p-6 md:p-8 flex flex-col max-h-[80vh] overflow-y-auto">
+                
+                <div class.="md:col-span-1 p-6 md:p-8 flex flex-col max-h-[80vh] overflow-y-auto">
                     
                     <div class="pb-6 border-b border-gray-200">
                         <p id="modal-category" class="text-sm font-semibold text-secondary uppercase tracking-wide">Category</p>
@@ -585,18 +594,12 @@
                         </a>
                     </div>
                     
-                    <div class="py-6 border-b border-gray-200">
+                    <div class="py-6">
                         <h3 class="text-lg font-bold text-dark-text mb-3">Key Features</h3>
                         <ul id="modal-features-list" class="space-y-2">
                            </ul>
                     </div>
                     
-                    <div class="pt-6">
-                        <h3 class="text-lg font-bold text-dark-text mb-3">Specifications</h3>
-                        <dl id="modal-specs-list" class="divide-y divide-gray-200">
-                            </dl>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -644,14 +647,14 @@
             
             // --- Product Section Logic ---
 
-            // --- UPDATED Product Data ---
+            // --- UPDATED & FILTERED Product Data ---
             const productCategories = [
               {
                 category: 'Orthopedic Braces',
                 products: [
                   { 
                     name: 'Ankle Brace', 
-                    imageUrl: 'https://i.ibb.co/NgFhCfGg/bc978d-8ab4f0f320824d62aadcaf1f4f7683f8-mv2.png', // UPDATED
+                    imageUrl: 'https://i.ibb.co/NgFhCfGg/bc978d-8ab4f0f320824d62aadcaf1f4f7683f8-mv2.png', 
                     shortDescription: 'Lace-up support with stabilizing straps.', 
                     description: 'Provides medial and lateral support to weak or injured ankles. Lace-up design with figure-8 straps mimics athletic taping for maximum stabilization.',
                     sku: 'OB-ANK-001',
@@ -670,28 +673,8 @@
                     ]
                   },
                   { 
-                    name: 'Elbow Brace', 
-                    imageUrl: 'https://i.ibb.co/FRz79Jn/07062c-acce3056ac544fa59e2476b042f1b12b-mv2.jpg', // UPDATED
-                    shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', 
-                    description: 'Designed to relieve pain from tennis or golfer\'s elbow. A compression pad applies targeted pressure to the forearm tendons, reducing strain and promoting healing.',
-                    sku: 'OB-ELB-002',
-                    availability: 'In Stock',
-                    features: [
-                        'Targeted compression pad for pain relief',
-                        'Adjustable hook-and-loop strap',
-                        'Breathable, moisture-wicking material',
-                        'Low-profile, can be worn during activity'
-                    ],
-                    specifications: [
-                        { key: 'Ideal for', value: 'Tennis Elbow (Lateral Epicondylitis), Golfer\'s Elbow (Medial Epicondylitis)' },
-                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
-                        { key: 'Material', value: 'Nylon/Foam blend' },
-                        { key: 'Care', value: 'Hand wash cold, air dry' }
-                    ]
-                  },
-                  { 
                     name: 'Hinged Knee Brace', 
-                    imageUrl: 'https://i.ibb.co/4RtPkCSj/07062c-4eb96a6eb73b4f50978412492cfc1627-mv2.jpg', // UPDATED
+                    imageUrl: 'https://i.ibb.co/4RtPkCSj/07062c-4eb96a6eb73b4f50978412492cfc1627-mv2.jpg', 
                     shortDescription: 'Hinged support for knee instability and recovery.', 
                     description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features heavy-duty polycentric hinges for enhanced stability while allowing for natural movement.',
                     sku: 'OB-KNE-003H',
@@ -711,7 +694,7 @@
                   },
                   { 
                     name: 'Shoulder Brace', 
-                    imageUrl: 'https://i.ibb.co/zHrBRXD7/bc978d-5d3f0c2be3f14dc3bc0ff7cc0e2108c3-mv2.png', // UPDATED
+                    imageUrl: 'https://i.ibb.co/zHrBRXD7/bc978d-5d3f0c2be3f14dc3bc0ff7cc0e2108c3-mv2.png', 
                     shortDescription: 'Compression and support for rotator cuff injuries.', 
                     description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.',
                     sku: 'OB-SHL-004',
@@ -731,7 +714,7 @@
                   },
                   { 
                     name: 'Hip Brace', 
-                    imageUrl: 'https://i.ibb.co/rRHYTDhY/bc978d-75131590dde846b3ae2b92028b2d44d8-mv2.jpg', // UPDATED
+                    imageUrl: 'https://i.ibb.co/rRHYTDhY/bc978d-75131590dde846b3ae2b92028b2d44d8-mv2.jpg', 
                     shortDescription: 'Controlled compression for groin and hip flexor strains.', 
                     description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.',
                     sku: 'OB-HIP-005',
@@ -751,7 +734,7 @@
                   },
                   { 
                     name: 'Back Brace', 
-                    imageUrl: 'https://i.ibb.co/1hhJYPx/07062c-a57f13460f02424db086ab4fd298780b-mv2.jpg', // UPDATED
+                    imageUrl: 'https://i.ibb.co/1hhJYPx/07062c-a57f13460f02424db086ab4fd298780b-mv2.jpg', 
                     shortDescription: 'Lumbar support to relieve lower back pain.', 
                     description: 'Offers firm lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features removable lumbar pad and dual adjustable compression straps.',
                     sku: 'OB-BAK-006L',
@@ -771,7 +754,7 @@
                   },
                   { 
                     name: 'Wrist Splint', 
-                    imageUrl: 'https://i.ibb.co/rGsqK6k5/07062c-4b1727a5accf4d90af9811d186dcd3c3-mv2.png', // UPDATED
+                    imageUrl: 'https://i.ibb.co/rGsqK6k5/07062c-4b1727a5accf4d90af9811d186dcd3c3-mv2.png', 
                     shortDescription: 'Stabilizing support for carpal tunnel and sprains.', 
                     description: 'Designed to stabilize and support the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable palmar splint provides rigid support while soft, breathable materials ensure all-day comfort.',
                     sku: 'OB-WRI-007',
@@ -788,372 +771,9 @@
                         { key: 'Material', value: 'Nylon/Foam blend, Aluminum splint' },
                         { key: 'Care', value: 'Hand wash cold (remove splint), air dry' }
                     ]
-                  },
-                  { 
-                    name: 'Cervical Collar', 
-                    imageUrl: 'https://m.media-amazon.com/images/I/7198e-PC-VL._AC_SL1500_.jpg', 
-                    shortDescription: 'Soft foam collar for neck support and pain relief.', 
-                    description: 'Provides gentle support to the cervical spine, helping to relieve pain from neck strains, sprains, or whiplash. Made from soft, contoured foam for comfort.',
-                    sku: 'OB-CER-008',
-                    availability: 'In Stock',
-                    features: [
-                        'Soft, breathable foam construction',
-                        'Contoured design for comfortable fit',
-                        'Adjustable Velcro closure',
-                        'Helps limit motion and provides support'
-                    ],
-                    specifications: [
-                        { key: 'Ideal for', value: 'Minor neck strains, sprains, whiplash, post-op support' },
-                        { key: 'Sizing', value: 'Universal (Adjustable) or S, M, L' },
-                        { key: 'Material', value: 'Soft Polyurethane Foam' }
-                    ]
-                  },
-                  { 
-                    name: 'Clavicle Brace', 
-                    imageUrl: 'https://m.media-amazon.com/images/I/71-j-b-jSQL._AC_SL1500_.jpg', 
-                    shortDescription: 'Figure-8 brace for posture correction and clavicle fractures.', 
-                    description: 'A figure-8 brace designed to help correct poor posture or provide support for clavicle (collarbone) fractures. It gently pulls the shoulders back to align the clavicle.',
-                    sku: 'OB-CLA-009',
-                    availability: 'In Stock',
-                    features: [
-                        'Figure-8 design for posture correction',
-                        'Padded straps for comfort',
-                        'Adjustable D-rings for custom fit',
-                        'Can be worn discreetly under clothing'
-                    ],
-                    specifications: [
-                        { key: 'Ideal for', value: 'Posture correction, clavicle fractures, sprains' },
-                        { key: 'Sizing', value: 'S, M, L (Measure chest circumference)' },
-                        { key: 'Material', value: 'Foam, Nylon, Cotton' }
-                    ]
-                  },
-                  { 
-                    name: 'Thumb Spica Splint', 
-                    imageUrl: 'https://m.media-amazon.com/images/I/71xGL-W9-JL._AC_SL1500_.jpg', 
-                    shortDescription: 'Immobilizes the thumb for sprains or De Quervain\'s.', 
-                    description: 'Immobilizes the thumb joint (CMC and MCP) while allowing other fingers to move freely. Ideal for thumb sprains, De Quervain\'s tenosynovitis, and arthritis.',
-                    sku: 'OB-THM-010',
-                    availability: 'In Stock',
-                    features: [
-                        'Provides rigid immobilization for the thumb',
-                        'Two removable splints (palmar and thumb)',
-                        'Adjustable straps for secure fit',
-                        'Breathable material for comfort'
-                    ],
-                    specifications: [
-                        { key: 'Ideal for', value: 'Thumb sprains, De Quervain\'s, arthritis, tendonitis' },
-                        { key: 'Sizing', value: 'Universal Fit (Left or Right hand specific)' },
-                        { key: 'Material', value: 'Neoprene blend, Aluminum splints' }
-                    ]
-                  },
-                ],
-              },
-              {
-                category: 'Living Aids',
-                products: [
-                  { 
-                    name: 'Bedpan Liners', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_422c96a46cfd4873b36279bc94bf5bd4~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Super absorbent liners that eliminate odors.', 
-                    description: 'Super absorbent liners for bedpans and commodes. Features a gelling agent that solidifies waste and eliminates odors, making cleanup simple and hygienic.',
-                    sku: 'LA-BDL-002',
-                    availability: 'In Stock',
-                    features: [
-                        'Super-absorbent pad gels liquid waste and traps odors.',
-                        'Prevents spills and splashes.',
-                        'Easy drawstring closure for hygienic disposal.',
-                        'Universal fit for most standard bedpans and commodes.'
-                    ],
-                    specifications: [
-                        { key: 'Quantity', value: '20 liners per box' },
-                        { key: 'Absorbency', value: 'Up to 16 oz (450ml)' },
-                        { key: 'Material', value: 'Polyethylene liner, Super-absorbent polymer (SAP) pad' }
-                    ]
-                  },
-                  { 
-                    name: 'Portable Bedside Commodes', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_efc1552d8050407f82ea158302d0debd~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Convenient and safe toileting for limited mobility.', 
-                    description: 'A convenient and safe toileting solution for individuals with limited mobility. Features a sturdy frame, comfortable seat, and a removable bucket with a splash shield and lid.',
-                    sku: 'LA-CMD-003',
-                    availability: 'In Stock',
-                    features: [
-                        '3-in-1 design: bedside commode, toilet safety frame, or raised toilet seat.',
-                        'Sturdy steel frame with adjustable height.',
-                        'Comes with commode bucket, lid, and splash shield.',
-                        'Non-skid rubber tips for safety.'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '300 lbs' },
-                        { key: 'Seat Width', value: '13.5 inches' },
-                        { key: 'Height Adjustment', value: '16.5" to 22.5"' },
-                        { key: 'Material', value: 'Powder-coated steel frame, Plastic seat' }
-                    ]
-                  },
-                ],
-              },
-              {
-                category: 'Mobility Aids',
-                products: [
-                  { 
-                    name: 'Wheelchairs', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_facaef011f164e1fb98efad96d8bc5ca~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Lightweight, durable, and comfortable design.', 
-                    description: 'Lightweight and durable wheelchairs designed for comfort and ease of use. Features include padded armrests, swing-away footrests, and easy-to-propel wheels. Available in various sizes.',
-                    sku: 'MA-WCH-001',
-                    availability: 'In Stock',
-                    features: [
-                        'Lightweight, foldable steel frame for easy transport.',
-                        'Padded, durable nylon upholstery.',
-                        'Swing-away footrests and padded armrests.',
-                        'Available in various seat widths (16", 18", 20").'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '250-300 lbs (depending on width)' },
-                        { key: 'Product Weight', value: 'Approx. 36 lbs' },
-                        { key: 'Seat Widths', value: '16", 18", 20"' }
-                    ]
-                  },
-                  { 
-                    name: 'Walkers', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Sturdy, adjustable, and foldable for easy transport.', 
-                    description: 'Sturdy and adjustable walkers providing stable support for those who need assistance with balance and mobility. Folds easily for transport and storage.',
-                    sku: 'MA-WLK-002',
-                    availability: 'In Stock',
-                    features: [
-                        'Lightweight aluminum frame.',
-                        'Push-button folding mechanism for easy storage.',
-                        'Adjustable height legs.',
-                        'Comfortable handgrips.'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '300 lbs' },
-                        { key: 'Product Weight', value: 'Approx. 6 lbs' },
-                        { key: 'Height Adjustment', value: '32" to 39"' }
-                    ]
-                  },
-                  { 
-                    name: 'Quad Cane', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_e1b7b337b97b4dd3bb9ed68e2598dc61~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Four-point base for superior stability.', 
-                    description: 'A four-point base cane that provides greater stability than a standard cane. The small base is ideal for navigating stairs and tight spaces. Height is adjustable for a custom fit.',
-                    sku: 'MA-CAN-003Q',
-                    availability: 'In Stock',
-                    features: [
-                        '4-point base provides greater stability than a standard cane.',
-                        'Small base is ideal for stairs and tight spaces.',
-                        'Push-button height adjustment.',
-                        'Ergonomic, cushioned handle.'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '250 lbs' },
-                        { key: 'Base Size', value: '6" x 8"' },
-                        { key: 'Height Adjustment', value: '29" to 38"' }
-                    ]
-                  },
-                  { 
-                    name: 'Folding Cane', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_ec22d9d4c6044e1eb996b4c86dd6af2b~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Convenient and portable for on-the-go support.', 
-                    description: 'A convenient and portable mobility aid that folds into a compact size for easy storage in a purse or bag. Features a comfortable grip and adjustable height.',
-                    sku: 'MA-CAN-004F',
-                    availability: 'In Stock',
-                    features: [
-                        'Folds into 4 compact sections for easy storage.',
-                        'Lightweight and durable aluminum shaft.',
-                        'Adjustable height with locking collar.',
-                        'Comfortable T-handle grip.'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '250 lbs' },
-                        { key: 'Folded Size', value: 'Approx. 12 inches' },
-                        { key: 'Height Adjustment', value: '33" to 37"' }
-                    ]
-                  },
-                  { 
-                    name: 'Crutches', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4f99aa57e6a04e6dbcdbfe474fc1654f~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Lightweight aluminum with comfortable padding.', 
-                    description: 'Lightweight aluminum crutches with comfortable underarm pads and handgrips. Height and handgrip positions are fully adjustable to ensure proper fit and support during recovery.',
-                    sku: 'MA-CRU-005',
-                    availability: 'In Stock',
-                    features: [
-                        'Lightweight aluminum construction.',
-                        'Push-button adjustment for height.',
-                        'Adjustable handgrip position.',
-                        'Thick, comfortable underarm and handgrip padding.'
-                    ],
-                    specifications: [
-                        { key: 'Weight Capacity', value: '300 lbs' },
-                        { key: 'Patient Height Range', value: '5\'2" to 5\'10" (Adult size)' },
-                        { key: 'Sizes Available', value: 'Tall, Adult, Youth' }
-                    ]
-                  },
-                ],
-              },
-              {
-                category: 'Medical Supplies',
-                products: [
-                  { 
-                    name: 'Ostomy Supplies', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_58f292496eec45eea41b21308739ae1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Secure, comfortable, and discreet ostomy solutions.', 
-                    description: 'A complete range of ostomy supplies including pouches, skin barriers, and accessories. Designed for security, comfort, and discretion for individuals with a colostomy, ileostomy, or urostomy.',
-                    sku: 'MS-OST-VAR',
-                    availability: 'In Stock',
-                    features: [
-                        'Wide variety of one-piece and two-piece systems.',
-                        'Skin-friendly barriers (wafers) in cut-to-fit or pre-cut.',
-                        'Drainable, closed-end, and urostomy pouches available.',
-                        'Integrated filters to reduce gas and odor.'
-                    ],
-                    specifications: [
-                        { key: 'Brands', value: 'Hollister, Coloplast, Convatec (Inquire for specific lines)' },
-                        { key: 'Types', value: 'One-piece, Two-piece, barriers, pastes, powders' },
-                        { key: 'Request', value: 'Please contact us with specific product needs.' }
-                    ]
-                  },
-                  { 
-                    name: 'Urological Supplies', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_7066c7318bb34be38d3a4f2e3a256021~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'High-quality catheters and leg bags.', 
-                    description: 'High-quality urological supplies including intermittent catheters, Foley catheters, and leg bags. We offer products designed for safety, comfort, and ease of use.',
-                    sku: 'MS-URO-VAR',
-                    availability: 'In Stock',
-                    features: [
-                        'Full range of intermittent (straight, coudé tip) catheters.',
-                        'Silicone and latex Foley catheters.',
-                        'Sterile leg bags and drainage systems.',
-                        'Hydrophilic and pre-lubricated options.'
-                    ],
-                    specifications: [
-                        { key: 'Types', value: 'Intermittent, Foley, External (Condom) Catheters, Leg Bags' },
-                        { key: 'Materials', value: 'Silicone, Latex, PVC, Red Rubber' },
-                        { key: 'Request', value: 'Please contact us for specific sizes (French) and types.' }
-                    ]
-                  },
-                  { 
-                    name: 'Surgical Dressings', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_f2d6c005d04646fd8bed4cffbca35c1e~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Sterile dressings to promote wound healing.', 
-                    description: 'A wide variety of sterile surgical dressings for wound care management, including gauze, sponges, bandages, and tapes. Designed to promote healing and protect against infection.',
-                    sku: 'MS-DRS-VAR',
-                    availability: 'In Stock',
-                    features: [
-                        'Sterile and non-sterile gauze sponges and rolls.',
-                        'Abdominal (ABD) pads for heavy drainage.',
-                        'Non-adherent dressings (Telfa).',
-                        'Medical tapes (paper, cloth, transparent).'
-                    ],
-                    specifications: [
-                        { key: 'Types', value: 'Gauze, ABD Pads, Sponges, Tapes, Bandages' },
-                        { key: 'Sizes', value: 'Various (e.g., 2x2, 4x4, 5x9)' },
-                        { key: 'Sterility', value: 'Sterile and Non-Sterile options' }
-                    ]
-                  },
-                  { 
-                    name: 'Enteral Nutrition', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg',
-                    shortDescription: 'Comprehensive supplies for tube feeding.', 
-                    description: 'Comprehensive enteral feeding supplies, including feeding tubes, pumps, and nutritional formulas. We provide reliable solutions for patients who require tube feeding.',
-                    sku: 'MS-ENT-VAR',
-                    availability: 'In Stock',
-                    features: [
-                        'Enteral feeding pumps and gravity bag sets.',
-                        'NG-tubes, G-tubes, and J-tubes.',
-                        'Wide range of nutritional formulas (e.g., Jevity, Ensure).',
-                        'Sterile water and feeding syringes.'
-                    ],
-                    specifications: [
-                        { key: 'Supplies', value: 'Pumps, feeding sets, tubes, syringes' },
-                        { key: 'Formulas', value: 'Nestle, Abbott, and other major brands' },
-                        { key: 'Request', value: 'Please contact us for specific formula or equipment needs.' }
-                    ]
-                  },
-                ],
-              },
-              {
-                category: 'Health Devices',
-                products: [
-                  { 
-                    name: 'Support Surfaces', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_fcd691909a3742938a8cfa05c1cd2b0a~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Specialized mattresses for pressure ulcer treatment.', 
-                    description: 'Specialized mattresses and overlays designed to help prevent and treat pressure ulcers (bedsores). Our support surfaces redistribute pressure, reduce friction, and manage microclimate for at-risk patients.',
-                    sku: 'HD-MAT-001',
-                    availability: 'In Stock',
-                    features: [
-                        'Pressure redistribution foam and/or alternating air cells.',
-                        'Helps prevent and treat Stage I-IV pressure ulcers.',
-                        'Vapor-permeable, waterproof covers.',
-                        'Low-air-loss and alternating pressure options.'
-                    ],
-                    specifications: [
-                        { key: 'Type', value: 'Foam, Alternating Pressure, Low Air Loss' },
-                        { key: 'Use With', value: 'Standard hospital beds' },
-                        { key: 'Weight Capacity', value: '300-500 lbs (model dependent)' }
-                    ]
-                  },
-                  { 
-                    name: 'UV Light Therapy Lamp', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_8adb0d7018b047e0a998acf987fd3fd6~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Portable device for treating skin conditions.', 
-                    description: 'A portable UV light therapy device for treating various skin conditions like psoriasis, vitiligo, and eczema. Provides targeted UVB phototherapy under medical supervision.',
-                    sku: 'HD-UVL-002',
-                    availability: 'In Stock',
-                    features: [
-                        'Provides targeted Narrowband UVB (Nb-UVB) phototherapy.',
-                        'Integrated comb attachment for scalp treatment.',
-                        'Lightweight and portable for home use.',
-                        'Requires prescription and medical supervision.'
-                    ],
-                    specifications: [
-                        { key: 'Lamp Type', value: 'Narrowband UVB (311nm)' },
-                        { key: 'Use For', value: 'Psoriasis, Vitiligo, Eczema' },
-                        { key: 'Warning', value: 'Use only under medical direction' }
-                    ]
-                  },
-                  { 
-                    name: 'Compression System', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4092f4f0f4d844afaed1cfde3069a6da~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Pneumatic device for lymphedema and circulation.', 
-                    description: 'A pneumatic compression device used to treat lymphedema and chronic venous insufficiency. The system uses inflatable garments to gently massage limbs, increasing circulation and reducing swelling.',
-                    sku: 'HD-CMP-003',
-                    availability: 'In Stock',
-                    features: [
-                        'Sequential pneumatic compression to reduce swelling.',
-                        'Adjustable pressure and cycle times.',
-                        'Includes pump and full-leg or arm garments.',
-                        'Helps treat lymphedema and venous insufficiency.'
-                    ],
-                    specifications: [
-                        { key: 'System', value: 'Pump and inflatable garments (leg, arm)' },
-                        { key: 'Pressure Range', value: '20 - 100 mmHg (model dependent)' },
-                        { key: 'Use For', value: 'Lymphedema, Chronic Venous Insufficiency, DVT Prevention' }
-                    ]
-                  },
-                  { 
-                    name: 'Compression Socks', 
-                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
-                    shortDescription: 'Improve circulation and reduce leg swelling.', 
-                    description: 'Graduated compression socks designed to improve circulation, reduce swelling, and relieve tired, achy legs. Ideal for travel, prolonged sitting or standing, and managing varicose veins.',
-                    sku: 'HD-SOX-004',
-                    availability: 'In Stock',
-                    features: [
-                        'Graduated compression to improve circulation.',
-                        'Helps reduce leg swelling, fatigue, and achiness.',
-                        'Available in various compression levels (mmHg).',
-                        'Opaque and sheer styles available.'
-                    ],
-                    specifications: [
-                        { key: 'Compression', value: '8-15, 15-20, 20-30, 30-40 mmHg' },
-                        { key: 'Style', value: 'Knee-high, Thigh-high, Pantyhose' },
-                        { key: 'Sizing', value: 'Based on ankle and calf measurements' }
-                    ]
                   }
                 ],
-              },
+              }
             ];
             
             // --- MODIFIED allProducts generator to include category ---
