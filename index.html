@@ -258,7 +258,8 @@
                 </div>
             </div>
         </section>
-        <section class="py-20 lg:py-28 bg-white"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="py-20 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center" data-aos="fade-up">
                 <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Commitment</h2>
                 <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
@@ -307,7 +308,8 @@
                 </div>
             </div>
         </section>
-        <section id="products" class="py-20 lg:py-28 bg-light-bg"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="products" class="py-20 lg:py-28 bg-light-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Our Products</h2>
                     <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
@@ -338,7 +340,7 @@
                 <div id="category-buttons" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
                     </div>
 
-                <div id="product-grid" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div id="product-grid" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     </div>
 
                 <div id="no-products-message" class="text-center col-span-full py-12 hidden">
@@ -346,7 +348,8 @@
                 </div>
             </div>
         </section>
-        <section class="py-20 lg:py-28 bg-white"> <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="py-20 lg:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-base font-semibold text-secondary uppercase tracking-wide">Testimonials</h2>
                 <p class="mt-2 text-3xl lg:text-4xl font-extrabold text-dark-text tracking-tight sm:text-4xl">
@@ -534,7 +537,7 @@
         role="dialog"
     >
         <div id="modal-overlay" class="absolute inset-0"></div> <div
-            class="modal-panel relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden"
+            class="modal-panel relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden transform"
         >
             <button
                 id="modal-close-btn"
@@ -546,8 +549,8 @@
                 </svg>
             </button>
 
-            <div class="grid md:grid-cols-2 gap-0">
-                <div class="w-full h-80 md:h-full bg-gray-100">
+            <div class="grid md:grid-cols-5 gap-0">
+                <div class="md:col-span-2 w-full h-80 md:h-full bg-gray-100">
                     <img 
                         id="modal-image"
                         src="" 
@@ -556,15 +559,41 @@
                     />
                 </div>
 
-                <div class="p-8 md:p-10 flex flex-col">
-                    <h2 id="modal-name" class="text-2xl md:text-3xl font-extrabold text-dark-text mb-4">
-                        Product Name
-                    </h2>
-                    <div class="overflow-y-auto max-h-[calc(100vh-200px)] pr-2 space-y-4">
+                <div class="md:col-span-3 p-6 md:p-8 flex flex-col max-h-[80vh] overflow-y-auto">
+                    
+                    <div class="pb-6 border-b border-gray-200">
+                        <p id="modal-category" class="text-sm font-semibold text-secondary uppercase tracking-wide">Category</p>
+                        <h2 id="modal-name" class="text-2xl md:text-3xl font-extrabold text-dark-text mt-1">
+                            Product Name
+                        </h2>
+                        
+                        <div class="flex items-center gap-4 mt-2">
+                             <span id="modal-availability" class="text-sm font-medium px-2.5 py-0.5 rounded-full"></span>
+                             <span class="text-sm text-gray-500">SKU: <span id="modal-sku" class="font-medium text-gray-700"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="py-6 space-y-4 border-b border-gray-200">
                         <p id="modal-description" class="text-base text-light-text leading-relaxed">
                             Product description...
                         </p>
+                         <a href="#contact" id="modal-quote-btn" class="inline-block bg-accent text-primary font-bold py-3 px-6 rounded-full shadow-sm text-base hover:bg-opacity-80 transition-colors">
+                            Request a Quote
+                        </a>
                     </div>
+                    
+                    <div class="py-6 border-b border-gray-200">
+                        <h3 class="text-lg font-bold text-dark-text mb-3">Key Features</h3>
+                        <ul id="modal-features-list" class="space-y-2">
+                           </ul>
+                    </div>
+                    
+                    <div class="pt-6">
+                        <h3 class="text-lg font-bold text-dark-text mb-3">Specifications</h3>
+                        <dl id="modal-specs-list" class="divide-y divide-gray-200">
+                            </dl>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -612,67 +641,551 @@
             
             // --- Product Section Logic ---
 
-            // Product Data (from data/productData.ts)
+            // --- UPGRADED Product Data ---
             const productCategories = [
-                {
-                    category: 'CGM Systems',
-                    products: [
-                    { name: 'Dexcom CGM System', imageUrl: 'https://static.wixstatic.com/media/22e53e_01575d792adb43a6a16595bd74a1cc8d~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Real-time glucose readings without fingersticks.', description: 'The Dexcom Continuous Glucose Monitoring (CGM) System provides real-time glucose readings for patients with diabetes. It helps track glucose levels and trends without fingersticks, featuring customizable alerts and data sharing capabilities.' },
-                    { name: 'Freestyle Libre System', imageUrl: 'https://static.wixstatic.com/media/22e53e_dc9ea8282a4944edab558992753a6d72~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Painless glucose scanning with a 14-day sensor.', description: 'The Freestyle Libre is a flash glucose monitoring system that allows you to get glucose readings with a painless scan instead of a fingerprick. The water-resistant sensor is worn on the back of the upper arm and provides up to 14 days of continuous monitoring.' },
-                    { name: 'Dexcom Sensors', imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Reliable, 10-day sensors for the Dexcom CGM.', description: 'Replacement sensors for the Dexcom CGM System. Each sensor can be worn for up to 10 days, providing accurate and reliable glucose data. They are designed for easy application and comfortable wear.' },
+              {
+                category: 'CGM Systems',
+                products: [
+                  { 
+                    name: 'Dexcom CGM System', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_01575d792adb43a6a16595bd74a1cc8d~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Real-time glucose readings without fingersticks.', 
+                    description: 'The Dexcom Continuous Glucose Monitoring (CGM) System provides real-time glucose readings for patients with diabetes. It helps track glucose levels and trends without fingersticks, featuring customizable alerts and data sharing capabilities.',
+                    sku: 'CGM-DEX-G6',
+                    availability: 'In Stock',
+                    features: [
+                        'Real-time glucose readings sent to your smart device.',
+                        'No fingersticks required for calibration or diabetes treatment decisions.',
+                        'Customizable high and low glucose alerts.',
+                        'Share glucose data with up to 10 followers.'
                     ],
-                },
-                {
-                    category: 'Orthopedic Braces',
-                    products: [
-                    { name: 'Ankle Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_924a086d18674cf281197d72d47207c1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Support and stabilization for injured or weak ankles.', description: 'Provides support and stabilization for weak, injured, or arthritic ankles. Ideal for preventing injuries during athletic activities or for post-injury recovery. Features adjustable straps for a secure, comfortable fit.' },
-                    { name: 'Elbow Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_6818890490334e429d78876ba5f757ce~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', description: 'Designed to relieve pain from conditions like tennis elbow or golfer\'s elbow. This brace applies targeted pressure to the forearm tendons, reducing strain and promoting healing. Made from breathable, lightweight materials.' },
-                    { name: 'Knee Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_76457cb2289949808e94bb1627b485f1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Hinged support for knee instability and recovery.', description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features hinged side supports for enhanced stability while allowing for natural movement. Suitable for various levels of activity.' },
-                    { name: 'Shoulder Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_b53f9a53db034e178a3f2d794ae70f1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Compression and support for rotator cuff injuries.', description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.' },
-                    { name: 'Hip Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_6d297acebd3b4b2890f1a0e92b8a7158~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Controlled compression for groin and hip flexor strains.', description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.' },
-                    { name: 'Back Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_1ede4ec9bbed46e4bad5859763fb4176~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lumbar support to relieve lower back pain.', description: 'Offers lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features adjustable compression and stabilizing supports to promote proper posture and healing.' },
-                    { name: 'Wrist Brace', imageUrl: 'https://static.wixstatic.com/media/22e53e_a5d9116384fb4659918c011a75175f77~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Stabilizing support for carpal tunnel and sprains.', description: 'Designed to stabilize the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable splint provides rigid support while soft, breathable materials ensure all-day comfort.' },
+                    specifications: [
+                        { key: 'Sensor Wear Time', value: 'Up to 10 days' },
+                        { key: 'Water Resistance', value: 'IP68: 8 ft for 24 hours' },
+                        { key: 'Compatibility', value: 'iOS and Android smart devices (check compatibility list)' }
+                    ]
+                  },
+                  { 
+                    name: 'Freestyle Libre System', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_dc9ea8282a4944edab558992753a6d72~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Painless glucose scanning with a 14-day sensor.', 
+                    description: 'The Freestyle Libre is a flash glucose monitoring system that allows you to get glucose readings with a painless scan instead of a fingerprick. The water-resistant sensor is worn on the back of the upper arm and provides up to 14 days of continuous monitoring.',
+                    sku: 'CGM-FSL-14D',
+                    availability: 'In Stock',
+                    features: [
+                        'Painless 1-second scan to get glucose readings.',
+                        'Stores 8 hours of glucose data.',
+                        'Water-resistant sensor for up to 14 days of wear.',
+                        'No fingerstick calibration required.'
                     ],
-                },
-                {
-                    category: 'Living Aids',
-                    products: [
-                    { name: 'Bedpans', imageUrl: 'https://static.wixstatic.com/media/22e53e_2fee033b2eca46cab4eec7fa74e99c31~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Durable and comfortable for bedridden patients.', description: 'Durable and easy-to-clean bedpan for bedridden patients. Designed with a contoured shape for comfort and a spill-proof construction for user confidence.' },
-                    { name: 'Bedpan Liners', imageUrl: 'https://static.wixstatic.com/media/22e53e_422c96a46cfd4873b36279bc94bf5bd4~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Super absorbent liners that eliminate odors.', description: 'Super absorbent liners for bedpans and commodes. Features a gelling agent that solidifies waste and eliminates odors, making cleanup simple and hygienic.' },
-                    { name: 'Portable Bedside Commodes', imageUrl: 'https://static.wixstatic.com/media/22e53e_efc1552d8050407f82ea158302d0debd~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Convenient and safe toileting for limited mobility.', description: 'A convenient and safe toileting solution for individuals with limited mobility. Features a sturdy frame, comfortable seat, and a removable bucket with a splash shield and lid.' },
+                    specifications: [
+                        { key: 'Sensor Wear Time', value: 'Up to 14 days' },
+                        { key: 'Water Resistance', value: 'IP68: 3 ft for 30 minutes' },
+                        { key: 'Data Storage', value: '8 hours (must scan every 8 hours)' }
+                    ]
+                  },
+                  { 
+                    name: 'Dexcom Sensors', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Reliable, 10-day sensors for the Dexcom CGM.', 
+                    description: 'Replacement sensors for the Dexcom CGM System. Each sensor can be worn for up to 10 days, providing accurate and reliable glucose data. They are designed for easy application and comfortable wear.',
+                    sku: 'CGM-DEX-S3',
+                    availability: 'In Stock',
+                    features: [
+                        'Simple auto-applicator for easy sensor insertion.',
+                        '10-day wear time per sensor.',
+                        'Accurate and reliable glucose readings.',
+                        'Pack of 3 sensors (30-day supply).'
                     ],
-                },
-                {
-                    category: 'Mobility Aids',
-                    products: [
-                    { name: 'Wheelchairs', imageUrl: 'https://static.wixstatic.com/media/22e53e_facaef011f164e1fb98efad96d8bc5ca~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lightweight, durable, and comfortable design.', description: 'Lightweight and durable wheelchairs designed for comfort and ease of use. Features include padded armrests, swing-away footrests, and easy-to-propel wheels. Available in various sizes.' },
-                    { name: 'Walkers', imageUrl: 'https://static.wixstatic.com/media/22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Sturdy, adjustable, and foldable for easy transport.', description: 'Sturdy and adjustable walkers providing stable support for those who need assistance with balance and mobility. Folds easily for transport and storage.' },
-                    { name: 'Quad Cane', imageUrl: 'https://static.wixstatic.com/media/22e53e_e1b7b337b97b4dd3bb9ed68e2598dc61~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Four-point base for superior stability.', description: 'A four-point base cane that provides greater stability than a standard cane. The small base is ideal for navigating stairs and tight spaces. Height is adjustable for a custom fit.' },
-                    { name: 'Folding Cane', imageUrl: 'https://static.wixstatic.com/media/22e53e_ec22d9d4c6044e1eb996b4c86dd6af2b~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Convenient and portable for on-the-go support.', description: 'A convenient and portable mobility aid that folds into a compact size for easy storage in a purse or bag. Features a comfortable grip and adjustable height.' },
-                    { name: 'Crutches', imageUrl: 'https://static.wixstatic.com/media/22e53e_4f99aa57e6a04e6dbcdbfe474fc1654f~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Lightweight aluminum with comfortable padding.', description: 'Lightweight aluminum crutches with comfortable underarm pads and handgrips. Height and handgrip positions are fully adjustable to ensure proper fit and support during recovery.' },
+                    specifications: [
+                        { key: 'Pack Quantity', value: '3 sensors' },
+                        { key: 'Use With', value: 'Dexcom G6 CGM System' },
+                        { key: 'Wear Time', value: 'Up to 10 days per sensor' }
+                    ]
+                  },
+                ],
+              },
+              {
+                category: 'Orthopedic Braces',
+                products: [
+                  { 
+                    name: 'Ankle Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_924a086d18674cf281197d72d47207c1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Support and stabilization for injured or weak ankles.', 
+                    description: 'Provides support and stabilization for weak, injured, or arthritic ankles. Ideal for preventing injuries during athletic activities or for post-injury recovery. Features adjustable straps for a secure, comfortable fit.',
+                    sku: 'OB-ANK-001',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides moderate support and stabilization.',
+                        'Adjustable straps for a custom, secure fit.',
+                        'Lightweight and breathable material for all-day comfort.',
+                        'Fits easily inside most shoes.'
                     ],
-                },
-                {
-                    category: 'Medical Supplies',
-                    products: [
-                    { name: 'Ostomy Supplies', imageUrl: 'https://static.wixstatic.com/media/22e53e_58f292496eec45eea41b21308739ae1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Secure, comfortable, and discreet ostomy solutions.', description: 'A complete range of ostomy supplies including pouches, skin barriers, and accessories. Designed for security, comfort, and discretion for individuals with a colostomy, ileostomy, or urostomy.' },
-                    { name: 'Urological Supplies', imageUrl: 'https://static.wixstatic.com/media/22e53e_7066c7318bb34be38d3a4f2e3a256021~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'High-quality catheters and leg bags.', description: 'High-quality urological supplies including intermittent catheters, Foley catheters, and leg bags. We offer products designed for safety, comfort, and ease of use.' },
-                    { name: 'Surgical Dressings', imageUrl: 'https://static.wixstatic.com/media/22e53e_f2d6c005d04646fd8bed4cffbca35c1e~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Sterile dressings to promote wound healing.', description: 'A wide variety of sterile surgical dressings for wound care management, including gauze, sponges, bandages, and tapes. Designed to promote healing and protect against infection.' },
-                    { name: 'Enteral Nutrition', imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Comprehensive supplies for tube feeding.', description: 'Comprehensive enteral feeding supplies, including feeding tubes, pumps, and nutritional formulas. We provide reliable solutions for patients who require tube feeding.' },
+                    specifications: [
+                        { key: 'Ideal for', value: 'Ankle sprains, instability, post-injury recovery, arthritis' },
+                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
+                        { key: 'Material', value: 'Latex-free Neoprene blend' },
+                        { key: 'Care', value: 'Hand wash cold, air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Elbow Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_6818890490334e429d78876ba5f757ce~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', 
+                    description: 'Designed to relieve pain from conditions like tennis elbow or golfer\'s elbow. This brace applies targeted pressure to the forearm tendons, reducing strain and promoting healing. Made from breathable, lightweight materials.',
+                    sku: 'OB-ELB-002',
+                    availability: 'In Stock',
+                    features: [
+                        'Applies targeted pressure to relieve tendon pain.',
+                        'Adjustable strap for customized compression.',
+                        'Breathable, lightweight materials for comfort.',
+                        'Low-profile design fits under clothing.'
                     ],
-                },
-                {
-                    category: 'Health Devices',
-                    products: [
-                    { name: 'Support Surfaces', imageUrl: 'https://static.wixstatic.com/media/22e53e_fcd691909a3742938a8cfa05c1cd2b0a~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Specialized mattresses for pressure ulcer treatment.', description: 'Specialized mattresses and overlays designed to help prevent and treat pressure ulcers (bedsores). Our support surfaces redistribute pressure, reduce friction, and manage microclimate for at-risk patients.' },
-                    { name: 'UV Light Therapy Lamp', imageUrl: 'https://static.wixstatic.com/media/22e53e_8adb0d7018b047e0a998acf987fd3fd6~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Portable device for treating skin conditions.', description: 'A portable UV light therapy device for treating various skin conditions like psoriasis, vitiligo, and eczema. Provides targeted UVB phototherapy under medical supervision.' },
-                    { name: 'Compression System', imageUrl: 'https://static.wixstatic.com/media/22e53e_4092f4f0f4d844afaed1cfde3069a6da~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Pneumatic device for lymphedema and circulation.', description: 'A pneumatic compression device used to treat lymphedema and chronic venous insufficiency. The system uses inflatable garments to gently massage limbs, increasing circulation and reducing swelling.' },
-                    { name: 'Compression Socks', imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', shortDescription: 'Improve circulation and reduce leg swelling.', description: 'Graduated compression socks designed to improve circulation, reduce swelling, and relieve tired, achy legs. Ideal for travel, prolonged sitting or standing, and managing varicose veins.' }
+                    specifications: [
+                        { key: 'Ideal for', value: 'Tennis Elbow (Lateral Epicondylitis), Golfer\'s Elbow (Medial Epicondylitis)' },
+                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
+                        { key: 'Material', value: 'Nylon/Foam blend' },
+                        { key: 'Care', value: 'Hand wash cold, air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Knee Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_76457cb2289949808e94bb1627b485f1~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Hinged support for knee instability and recovery.', 
+                    description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features hinged side supports for enhanced stability while allowing for natural movement. Suitable for various levels of activity.',
+                    sku: 'OB-KNE-003H',
+                    availability: 'In Stock',
+                    features: [
+                        'Dual-axis hinges for medial and lateral stability.',
+                        'Open patella design relieves pressure on the kneecap.',
+                        'Adjustable straps for compression and secure fit.',
+                        'Helps control hyperextension of the knee.'
                     ],
-                },
+                    specifications: [
+                        { key: 'Ideal for', value: 'Ligament injuries (ACL, PCL, MCL), knee instability, post-op recovery' },
+                        { key: 'Sizing', value: 'Available in S, M, L, XL (Measure circumference of thigh)' },
+                        { key: 'Material', value: 'Latex-free Neoprene, Aluminum hinges' },
+                        { key: 'Care', value: 'Hand wash cold (remove hinges), air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Shoulder Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_b53f9a53db034e178a3f2d794ae70f1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Compression and support for rotator cuff injuries.', 
+                    description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.',
+                    sku: 'OB-SHL-004',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides compression and stability for the shoulder joint.',
+                        'Helps reduce pain from rotator cuff injuries or dislocations.',
+                        'Adjustable chest and arm straps for a secure fit.',
+                        'Can be worn on left or right shoulder.'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Rotator cuff tears, shoulder instability, dislocations, bursitis' },
+                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
+                        { key: 'Material', value: 'Breathable Neoprene blend' },
+                        { key: 'Care', value: 'Hand wash cold, air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Hip Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_6d297acebd3b4b2890f1a0e92b8a7158~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Controlled compression for groin and hip flexor strains.', 
+                    description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.',
+                    sku: 'OB-HIP-005',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides targeted compression for hip, groin, and upper thigh.',
+                        'Adjustable waistband and thigh strap for custom fit.',
+                        'Neoprene material retains therapeutic heat to promote healing.',
+                        'Can be worn on left or right leg.'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Groin strains, hip flexor injuries, hamstring or quad pulls, sciatica' },
+                        { key: 'Sizing', value: 'Universal Fit (Adjustable)' },
+                        { key: 'Material', value: 'Latex-free Neoprene' },
+                        { key: 'Care', value: 'Hand wash cold, air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Back Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1ede4ec9bbed46e4bad5859763fb4176~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Lumbar support to relieve lower back pain.', 
+                    description: 'Offers lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features adjustable compression and stabilizing supports to promote proper posture and healing.',
+                    sku: 'OB-BAK-006L',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides firm support to the lumbar (lower back) region.',
+                        'Internal stabilizing stays to help maintain posture.',
+                        'Dual adjustable straps for customized compression.',
+                        'Breathable mesh panels for comfort.'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Lower back pain, muscle strains, sprains, sciatica' },
+                        { key: 'Sizing', value: 'Available in S/M, L/XL (Measure waist circumference)' },
+                        { key: 'Material', value: 'Nylon, Polyester, Breathable Mesh' },
+                        { key: 'Care', value: 'Hand wash cold, air dry' }
+                    ]
+                  },
+                  { 
+                    name: 'Wrist Brace', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_a5d9116384fb4659918c011a75175f77~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Stabilizing support for carpal tunnel and sprains.', 
+                    description: 'Designed to stabilize the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable splint provides rigid support while soft, breathable materials ensure all-day comfort.',
+                    sku: 'OB-WRI-007',
+                    availability: 'In Stock',
+                    features: [
+                        'Removable aluminum splint provides rigid stabilization.',
+                        'Adjustable straps for a secure, comfortable fit.',
+                        'Breathable, lightweight material.',
+                        'Available in Left and Right hand models.'
+                    ],
+                    specifications: [
+                        { key: 'Ideal for', value: 'Carpal Tunnel Syndrome, sprains, strains, arthritis, tendonitis' },
+                        { key: 'Sizing', value: 'Available in S, M, L (Measure wrist circumference)' },
+                        { key: 'Material', value: 'Nylon/Foam blend, Aluminum splint' },
+                        { key: 'Care', value: 'Hand wash cold (remove splint), air dry' }
+                    ]
+                  },
+                ],
+              },
+              {
+                category: 'Living Aids',
+                products: [
+                  { 
+                    name: 'Bedpans', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_2fee033b2eca46cab4eec7fa74e99c31~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Durable and comfortable for bedridden patients.', 
+                    description: 'Durable and easy-to-clean bedpan for bedridden patients. Designed with a contoured shape for comfort and a spill-proof construction for user confidence.',
+                    sku: 'LA-BDP-001',
+                    availability: 'In Stock',
+                    features: [
+                        'Contoured shape for patient comfort.',
+                        'Durable, heavy-duty molded plastic.',
+                        'Easy to clean and sanitize.',
+                        'Built-in handle for transport.'
+                    ],
+                    specifications: [
+                        { key: 'Material', value: 'Autoclavable Polypropylene' },
+                        { key: 'Weight Capacity', value: '250 lbs' },
+                        { key: 'Color', value: 'Grey' }
+                    ]
+                  },
+                  { 
+                    name: 'Bedpan Liners', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_422c96a46cfd4873b36279bc94bf5bd4~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Super absorbent liners that eliminate odors.', 
+                    description: 'Super absorbent liners for bedpans and commodes. Features a gelling agent that solidifies waste and eliminates odors, making cleanup simple and hygienic.',
+                    sku: 'LA-BDL-002',
+                    availability: 'In Stock',
+                    features: [
+                        'Super-absorbent pad gels liquid waste and traps odors.',
+                        'Prevents spills and splashes.',
+                        'Easy drawstring closure for hygienic disposal.',
+                        'Universal fit for most standard bedpans and commodes.'
+                    ],
+                    specifications: [
+                        { key: 'Quantity', value: '20 liners per box' },
+                        { key: 'Absorbency', value: 'Up to 16 oz (450ml)' },
+                        { key: 'Material', value: 'Polyethylene liner, Super-absorbent polymer (SAP) pad' }
+                    ]
+                  },
+                  { 
+                    name: 'Portable Bedside Commodes', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_efc1552d8050407f82ea158302d0debd~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Convenient and safe toileting for limited mobility.', 
+                    description: 'A convenient and safe toileting solution for individuals with limited mobility. Features a sturdy frame, comfortable seat, and a removable bucket with a splash shield and lid.',
+                    sku: 'LA-CMD-003',
+                    availability: 'In Stock',
+                    features: [
+                        '3-in-1 design: bedside commode, toilet safety frame, or raised toilet seat.',
+                        'Sturdy steel frame with adjustable height.',
+                        'Comes with commode bucket, lid, and splash shield.',
+                        'Non-skid rubber tips for safety.'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '300 lbs' },
+                        { key: 'Seat Width', value: '13.5 inches' },
+                        { key: 'Height Adjustment', value: '16.5" to 22.5"' },
+                        { key: 'Material', value: 'Powder-coated steel frame, Plastic seat' }
+                    ]
+                  },
+                ],
+              },
+              {
+                category: 'Mobility Aids',
+                products: [
+                  { 
+                    name: 'Wheelchairs', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_facaef011f164e1fb98efad96d8bc5ca~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Lightweight, durable, and comfortable design.', 
+                    description: 'Lightweight and durable wheelchairs designed for comfort and ease of use. Features include padded armrests, swing-away footrests, and easy-to-propel wheels. Available in various sizes.',
+                    sku: 'MA-WCH-001',
+                    availability: 'In Stock',
+                    features: [
+                        'Lightweight, foldable steel frame for easy transport.',
+                        'Padded, durable nylon upholstery.',
+                        'Swing-away footrests and padded armrests.',
+                        'Available in various seat widths (16", 18", 20").'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '250-300 lbs (depending on width)' },
+                        { key: 'Product Weight', value: 'Approx. 36 lbs' },
+                        { key: 'Seat Widths', value: '16", 18", 20"' }
+                    ]
+                  },
+                  { 
+                    name: 'Walkers', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_c9bafb2ad1424aff97c33ef56eaca801~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Sturdy, adjustable, and foldable for easy transport.', 
+                    description: 'Sturdy and adjustable walkers providing stable support for those who need assistance with balance and mobility. Folds easily for transport and storage.',
+                    sku: 'MA-WLK-002',
+                    availability: 'In Stock',
+                    features: [
+                        'Lightweight aluminum frame.',
+                        'Push-button folding mechanism for easy storage.',
+                        'Adjustable height legs.',
+                        'Comfortable handgrips.'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '300 lbs' },
+                        { key: 'Product Weight', value: 'Approx. 6 lbs' },
+                        { key: 'Height Adjustment', value: '32" to 39"' }
+                    ]
+                  },
+                  { 
+                    name: 'Quad Cane', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_e1b7b337b97b4dd3bb9ed68e2598dc61~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Four-point base for superior stability.', 
+                    description: 'A four-point base cane that provides greater stability than a standard cane. The small base is ideal for navigating stairs and tight spaces. Height is adjustable for a custom fit.',
+                    sku: 'MA-CAN-003Q',
+                    availability: 'In Stock',
+                    features: [
+                        '4-point base provides greater stability than a standard cane.',
+                        'Small base is ideal for stairs and tight spaces.',
+                        'Push-button height adjustment.',
+                        'Ergonomic, cushioned handle.'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '250 lbs' },
+                        { key: 'Base Size', value: '6" x 8"' },
+                        { key: 'Height Adjustment', value: '29" to 38"' }
+                    ]
+                  },
+                  { 
+                    name: 'Folding Cane', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_ec22d9d4c6044e1eb996b4c86dd6af2b~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Convenient and portable for on-the-go support.', 
+                    description: 'A convenient and portable mobility aid that folds into a compact size for easy storage in a purse or bag. Features a comfortable grip and adjustable height.',
+                    sku: 'MA-CAN-004F',
+                    availability: 'In Stock',
+                    features: [
+                        'Folds into 4 compact sections for easy storage.',
+                        'Lightweight and durable aluminum shaft.',
+                        'Adjustable height with locking collar.',
+                        'Comfortable T-handle grip.'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '250 lbs' },
+                        { key: 'Folded Size', value: 'Approx. 12 inches' },
+                        { key: 'Height Adjustment', value: '33" to 37"' }
+                    ]
+                  },
+                  { 
+                    name: 'Crutches', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4f99aa57e6a04e6dbcdbfe474fc1654f~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Lightweight aluminum with comfortable padding.', 
+                    description: 'Lightweight aluminum crutches with comfortable underarm pads and handgrips. Height and handgrip positions are fully adjustable to ensure proper fit and support during recovery.',
+                    sku: 'MA-CRU-005',
+                    availability: 'In Stock',
+                    features: [
+                        'Lightweight aluminum construction.',
+                        'Push-button adjustment for height.',
+                        'Adjustable handgrip position.',
+                        'Thick, comfortable underarm and handgrip padding.'
+                    ],
+                    specifications: [
+                        { key: 'Weight Capacity', value: '300 lbs' },
+                        { key: 'Patient Height Range', value: '5\'2" to 5\'10" (Adult size)' },
+                        { key: 'Sizes Available', value: 'Tall, Adult, Youth' }
+                    ]
+                  },
+                ],
+              },
+              {
+                category: 'Medical Supplies',
+                products: [
+                  { 
+                    name: 'Ostomy Supplies', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_58f292496eec45eea41b21308739ae1c~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Secure, comfortable, and discreet ostomy solutions.', 
+                    description: 'A complete range of ostomy supplies including pouches, skin barriers, and accessories. Designed for security, comfort, and discretion for individuals with a colostomy, ileostomy, or urostomy.',
+                    sku: 'MS-OST-VAR',
+                    availability: 'In Stock',
+                    features: [
+                        'Wide variety of one-piece and two-piece systems.',
+                        'Skin-friendly barriers (wafers) in cut-to-fit or pre-cut.',
+                        'Drainable, closed-end, and urostomy pouches available.',
+                        'Integrated filters to reduce gas and odor.'
+                    ],
+                    specifications: [
+                        { key: 'Brands', value: 'Hollister, Coloplast, Convatec (Inquire for specific lines)' },
+                        { key: 'Types', value: 'One-piece, Two-piece, barriers, pastes, powders' },
+                        { key: 'Request', value: 'Please contact us with specific product needs.' }
+                    ]
+                  },
+                  { 
+                    name: 'Urological Supplies', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_7066c7318bb34be38d3a4f2e3a256021~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'High-quality catheters and leg bags.', 
+                    description: 'High-quality urological supplies including intermittent catheters, Foley catheters, and leg bags. We offer products designed for safety, comfort, and ease of use.',
+                    sku: 'MS-URO-VAR',
+                    availability: 'In Stock',
+                    features: [
+                        'Full range of intermittent (straight, coudé tip) catheters.',
+                        'Silicone and latex Foley catheters.',
+                        'Sterile leg bags and drainage systems.',
+                        'Hydrophilic and pre-lubricated options.'
+                    ],
+                    specifications: [
+                        { key: 'Types', value: 'Intermittent, Foley, External (Condom) Catheters, Leg Bags' },
+                        { key: 'Materials', value: 'Silicone, Latex, PVC, Red Rubber' },
+                        { key: 'Request', value: 'Please contact us for specific sizes (French) and types.' }
+                    ]
+                  },
+                  { 
+                    name: 'Surgical Dressings', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_f2d6c005d04646fd8bed4cffbca35c1e~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Sterile dressings to promote wound healing.', 
+                    description: 'A wide variety of sterile surgical dressings for wound care management, including gauze, sponges, bandages, and tapes. Designed to promote healing and protect against infection.',
+                    sku: 'MS-DRS-VAR',
+                    availability: 'In Stock',
+                    features: [
+                        'Sterile and non-sterile gauze sponges and rolls.',
+                        'Abdominal (ABD) pads for heavy drainage.',
+                        'Non-adherent dressings (Telfa).',
+                        'Medical tapes (paper, cloth, transparent).'
+                    ],
+                    specifications: [
+                        { key: 'Types', value: 'Gauze, ABD Pads, Sponges, Tapes, Bandages' },
+                        { key: 'Sizes', value: 'Various (e.g., 2x2, 4x4, 5x9)' },
+                        { key: 'Sterility', value: 'Sterile and Non-Sterile options' }
+                    ]
+                  },
+                  { 
+                    name: 'Enteral Nutrition', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_1addd1e1b4c64c9abd47dbc5f36d4b01~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Comprehensive supplies for tube feeding.', 
+                    description: 'Comprehensive enteral feeding supplies, including feeding tubes, pumps, and nutritional formulas. We provide reliable solutions for patients who require tube feeding.',
+                    sku: 'MS-ENT-VAR',
+                    availability: 'In Stock',
+                    features: [
+                        'Enteral feeding pumps and gravity bag sets.',
+                        'NG-tubes, G-tubes, and J-tubes.',
+                        'Wide range of nutritional formulas (e.g., Jevity, Ensure).',
+                        'Sterile water and feeding syringes.'
+                    ],
+                    specifications: [
+                        { key: 'Supplies', value: 'Pumps, feeding sets, tubes, syringes' },
+                        { key: 'Formulas', value: 'Nestle, Abbott, and other major brands' },
+                        { key: 'Request', value: 'Please contact us for specific formula or equipment needs.' }
+                    ]
+                  },
+                ],
+              },
+              {
+                category: 'Health Devices',
+                products: [
+                  { 
+                    name: 'Support Surfaces', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_fcd691909a3742938a8cfa05c1cd2b0a~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Specialized mattresses for pressure ulcer treatment.', 
+                    description: 'Specialized mattresses and overlays designed to help prevent and treat pressure ulcers (bedsores). Our support surfaces redistribute pressure, reduce friction, and manage microclimate for at-risk patients.',
+                    sku: 'HD-MAT-001',
+                    availability: 'In Stock',
+                    features: [
+                        'Pressure redistribution foam and/or alternating air cells.',
+                        'Helps prevent and treat Stage I-IV pressure ulcers.',
+                        'Vapor-permeable, waterproof covers.',
+                        'Low-air-loss and alternating pressure options.'
+                    ],
+                    specifications: [
+                        { key: 'Type', value: 'Foam, Alternating Pressure, Low Air Loss' },
+                        { key: 'Use With', value: 'Standard hospital beds' },
+                        { key: 'Weight Capacity', value: '300-500 lbs (model dependent)' }
+                    ]
+                  },
+                  { 
+                    name: 'UV Light Therapy Lamp', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_8adb0d7018b047e0a998acf987fd3fd6~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Portable device for treating skin conditions.', 
+                    description: 'A portable UV light therapy device for treating various skin conditions like psoriasis, vitiligo, and eczema. Provides targeted UVB phototherapy under medical supervision.',
+                    sku: 'HD-UVL-002',
+                    availability: 'In Stock',
+                    features: [
+                        'Provides targeted Narrowband UVB (Nb-UVB) phototherapy.',
+                        'Integrated comb attachment for scalp treatment.',
+                        'Lightweight and portable for home use.',
+                        'Requires prescription and medical supervision.'
+                    ],
+                    specifications: [
+                        { key: 'Lamp Type', value: 'Narrowband UVB (311nm)' },
+                        { key:V_1-1
+                        'Use For', value: 'Psoriasis, Vitiligo, Eczema' },
+                        { key: 'Warning', value: 'Use only under medical direction' }
+                    ]
+                  },
+                  { 
+                    name: 'Compression System', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4092f4f0f4d844afaed1cfde3069a6da~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Pneumatic device for lymphedema and circulation.', 
+                    description: 'A pneumatic compression device used to treat lymphedema and chronic venous insufficiency. The system uses inflatable garments to gently massage limbs, increasing circulation and reducing swelling.',
+                    sku: 'HD-CMP-003',
+                    availability: 'InStock',
+                    features: [
+                        'Sequential pneumatic compression to reduce swelling.',
+                        'Adjustable pressure and cycle times.',
+                        'Includes pump and full-leg or arm garments.',
+                        'Helps treat lymphedema and venous insufficiency.'
+                    ],
+                    specifications: [
+                        { key: 'System', value: 'Pump and inflatable garments (leg, arm)' },
+                        { key: 'Pressure Range', value: '20 - 100 mmHg (model dependent)' },
+                        { key: 'Use For', value: 'Lymphedema, Chronic Venous Insufficiency, DVT Prevention' }
+                    ]
+                  },
+                  { 
+                    name: 'Compression Socks', 
+                    imageUrl: 'https://static.wixstatic.com/media/22e53e_4a271c0887d34ec6be04a8f3c870b869~mv2.jpg/v1/fit/w_1000,h_1000,q_90/file.jpg', 
+                    shortDescription: 'Improve circulation and reduce leg swelling.', 
+                    description: 'Graduated compression socks designed to improve circulation, reduce swelling, and relieve tired, achy legs. Ideal for travel, prolonged sitting or standing, and managing varicose veins.',
+                    sku: 'HD-SOX-004',
+                    availability: 'In Stock',
+                    features: [
+                        'Graduated compression to improve circulation.',
+                        'Helps reduce leg swelling, fatigue, and achiness.',
+                        'Available in various compression levels (mmHg).',
+                        'Opaque and sheer styles available.'
+                    ],
+                    specifications: [
+                        { key: 'Compression', value: '8-15, 15-20, 20-30, 30-40 mmHg' },
+                        { key: 'Style', value: 'Knee-high, Thigh-high, Pantyhose' },
+                        { key: 'Sizing', value: 'Based on ankle and calf measurements' }
+                    ]
+                  }
+                ],
+              },
             ];
             
-            const allProducts = productCategories.flatMap(cat => cat.products);
+            // --- MODIFIED allProducts generator to include category ---
+            const allProducts = productCategories.flatMap(cat => 
+                cat.products.map(prod => ({
+                    ...prod,
+                    category: cat.category // Inject the category name into each product object
+                }))
+            );
+            
             const categories = ['All', ...productCategories.map(cat => cat.category)];
             let selectedCategory = 'All';
             let searchQuery = '';
@@ -689,7 +1202,13 @@
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const modalImage = document.getElementById('modal-image');
             const modalName = document.getElementById('modal-name');
+            const modalCategory = document.getElementById('modal-category');
+            const modalAvailability = document.getElementById('modal-availability');
+            const modalSku = document.getElementById('modal-sku');
             const modalDescription = document.getElementById('modal-description');
+            const modalFeaturesList = document.getElementById('modal-features-list');
+            const modalSpecsList = document.getElementById('modal-specs-list');
+            const modalQuoteBtn = document.getElementById('modal-quote-btn');
 
 
             // --- Render Functions ---
@@ -714,7 +1233,8 @@
                 if (selectedCategory === 'All') {
                     baseProducts = allProducts;
                 } else {
-                    baseProducts = productCategories.find(cat => cat.category === selectedCategory)?.products || [];
+                    const categoryData = productCategories.find(cat => cat.category === selectedCategory);
+                    baseProducts = categoryData ? categoryData.products.map(p => ({...p, category: categoryData.category})) : [];
                 }
 
                 const filteredProducts = baseProducts.filter(product =>
@@ -724,7 +1244,7 @@
                 
                 // Show 12 products if 'All' is selected and no search query
                 let displayedProducts = (selectedCategory === 'All' && !searchQuery)
-                    ? filteredProducts.slice(0, 12)
+                    ? allProducts.slice(0, 12) // Show from allProducts to get a mix
                     : filteredProducts;
 
                 productGrid.innerHTML = ''; // Clear existing products
@@ -736,27 +1256,20 @@
                     displayedProducts.forEach((product, index) => {
                         const productCard = document.createElement('div');
                         productCard.setAttribute('data-aos', 'fade-up');
-                        productCard.setAttribute('data-aos-delay', (index % 3) * 100);
+                        productCard.setAttribute('data-aos-delay', (index % 4) * 100);
                         
-                        // ** MODIFIED PRODUCT CARD WITH FULL DESCRIPTION **
+                        // --- REVERTED Product Card to cleaner teaser view ---
                         productCard.innerHTML = `
-                            <div class="group rounded-2xl shadow-lg overflow-hidden bg-white flex flex-col h-full border border-gray-100">
-                                <div class="w-full h-64 overflow-hidden">
-                                    <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                                </div>
-                                <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-dark-text text-xl font-bold">${product.name}</h3>
-                                    <p class="text-light-text text-base mt-2 flex-grow">
-                                        ${product.description}
-                                    </p>
-                                    <button
-                                        class="mt-6 w-full product-card-button bg-accent text-primary font-bold py-3 px-6 rounded-full shadow-sm hover:bg-opacity-80 transition-colors"
-                                        data-product-name="${product.name}"
-                                    >
-                                        View Details
-                                    </button>
-                                </div>
+                          <button class="product-card-button group relative overflow-hidden rounded-2xl shadow-lg text-left w-full h-full" data-product-name="${product.name}">
+                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 transition-all duration-300"></div>
+                            <div class="absolute inset-0 flex items-end p-6">
+                              <div>
+                                <h3 class="text-white text-xl font-bold">${product.name}</h3>
+                                <p class="text-white/90 text-sm mt-1">${product.shortDescription}</p>
+                              </div>
                             </div>
+                          </button>
                         `;
                         productGrid.appendChild(productCard);
                     });
@@ -771,13 +1284,57 @@
             
             // --- Modal Functions ---
             
+            // --- UPGRADED openModal function ---
             function openModal(product) {
                 if (!product) return;
                 
+                // Populate all modal fields
                 modalImage.src = product.imageUrl;
                 modalImage.alt = product.name;
                 modalName.textContent = product.name;
+                modalCategory.textContent = product.category;
+                modalSku.textContent = product.sku;
                 modalDescription.textContent = product.description;
+                
+                // Availability Badge
+                modalAvailability.textContent = product.availability;
+                if (product.availability === 'In Stock') {
+                    modalAvailability.className = 'text-sm font-medium px-2.5 py-0.5 rounded-full bg-green-100 text-green-800';
+                } else {
+                    modalAvailability.className = 'text-sm font-medium px-2.5 py-0.5 rounded-full bg-yellow-100 text-yellow-800';
+                }
+                
+                // Populate Features
+                modalFeaturesList.innerHTML = '';
+                product.features.forEach(feature => {
+                    modalFeaturesList.innerHTML += `
+                        <li class="flex items-start text-light-text">
+                            <svg class="flex-shrink-0 w-5 h-5 text-secondary mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>${feature}</span>
+                        </li>
+                    `;
+                });
+                
+                // Populate Specifications
+                modalSpecsList.innerHTML = '';
+                product.specifications.forEach((spec, index) => {
+                    const noBorder = index === product.specifications.length - 1 ? '' : 'border-b';
+                    modalSpecsList.innerHTML += `
+                        <div class="py-3 sm:grid sm:grid-cols-3 sm:gap-4 ${noBorder} border-gray-200">
+                            <dt class="text-sm font-medium text-gray-500">${spec.key}</dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${spec.value}</dd>
+                        </div>
+                    `;
+                });
+
+                // Set Quote Button Link
+                modalQuoteBtn.onclick = () => {
+                    closeModal(); // Close modal first
+                    // You can optionally pre-fill the contact form here if you want
+                    // For now, it just closes the modal and the link's href="#contact" will scroll
+                };
                 
                 productModal.classList.add('is-open');
                 document.body.style.overflow = 'hidden';
