@@ -654,7 +654,7 @@
                 products: [
                   { 
                     name: 'Ankle Brace', 
-                    imageUrl: 'https://i.ibb.co/NgFhCfGg/bc978d-8ab4f0f320824d62aadcaf1f4f7683f8-mv2.png', 
+                    imageUrl: 'https://i.ibb.co/JRwqdfMC/bc978d-8ab4f0f320824d62aadcaf1f4f7683f8-mv2.png', // UPDATED
                     shortDescription: 'Lace-up support with stabilizing straps.', 
                     description: 'Provides medial and lateral support to weak or injured ankles. Lace-up design with figure-8 straps mimics athletic taping for maximum stabilization.',
                     sku: 'OB-ANK-001',
@@ -674,7 +674,7 @@
                   },
                   { 
                     name: 'Elbow Brace', 
-                    imageUrl: 'https://i.ibb.co/FRz79Jn/07062c-acce3056ac544fa59e2476b042f1b12b-mv2.jpg', 
+                    imageUrl: 'https://i.ibb.co/3Y79mGxZ/07062c-acce3056ac544fa59e2476b042f1b12b-mv2.jpg', // UPDATED
                     shortDescription: 'Targeted pressure relief for tennis or golfer\'s elbow.', 
                     description: 'Designed to relieve pain from tennis or golfer\'s elbow. A compression pad applies targeted pressure to the forearm tendons, reducing strain and promoting healing.',
                     sku: 'OB-ELB-002',
@@ -694,7 +694,7 @@
                   },
                   { 
                     name: 'Hinged Knee Brace', 
-                    imageUrl: 'https://i.ibb.co/4RtPkCSj/07062c-4eb96a6eb73b4f50978412492cfc1627-mv2.jpg', 
+                    imageUrl: 'https://i.ibb.co/QFHMT0bb/07062c-4eb96a6eb73b4f50978412492cfc1627-mv2.jpg', // UPDATED
                     shortDescription: 'Hinged support for knee instability and recovery.', 
                     description: 'Offers robust support for knee instability, ligament injuries, and post-operative recovery. Features heavy-duty polycentric hinges for enhanced stability while allowing for natural movement.',
                     sku: 'OB-KNE-003H',
@@ -714,7 +714,7 @@
                   },
                   { 
                     name: 'Shoulder Brace', 
-                    imageUrl: 'https://i.ibb.co/zHrBRXD7/bc978d-5d3f0c2be3f14dc3bc0ff7cc0e2108c3-mv2.png', 
+                    imageUrl: 'https://i.ibb.co/SwC1PSpx/bc978d-5d3f0c2be3f14dc3bc0ff7cc0e2108c3-mv2.png', // UPDATED
                     shortDescription: 'Compression and support for rotator cuff injuries.', 
                     description: 'A compression and support brace for rotator cuff injuries, dislocations, and general shoulder instability. Helps to increase blood flow and reduce recovery time while providing comfort and stability.',
                     sku: 'OB-SHL-004',
@@ -734,7 +734,7 @@
                   },
                   { 
                     name: 'Hip Brace', 
-                    imageUrl: 'https://i.ibb.co/rRHYTDhY/bc978d-75131590dde846b3ae2b92028b2d44d8-mv2.jpg', 
+                    imageUrl: 'https://i.ibb.co/938pwpSg/bc978d-75131590dde846b3ae2b92028b2d44d8-mv2.jpg', // UPDATED
                     shortDescription: 'Controlled compression for groin and hip flexor strains.', 
                     description: 'Provides controlled compression to the groin, quad, hamstring, and hip flexor. Aids in the recovery from strains and injuries by providing stability and warmth to the affected area.',
                     sku: 'OB-HIP-005',
@@ -754,7 +754,7 @@
                   },
                   { 
                     name: 'Back Brace', 
-                    imageUrl: 'https://i.ibb.co/1hhJYPx/07062c-a57f13460f02424db086ab4fd298780b-mv2.jpg', 
+                    imageUrl: 'https://i.ibb.co/spv8w9Fq/07062c-a57f13460f02424db086ab4fd298780b-mv2.jpg', // UPDATED
                     shortDescription: 'Lumbar support to relieve lower back pain.', 
                     description: 'Offers firm lumbar support to relieve lower back pain from strains, sprains, and muscle spasms. Features removable lumbar pad and dual adjustable compression straps.',
                     sku: 'OB-BAK-006L',
@@ -774,7 +774,7 @@
                   },
                   { 
                     name: 'Wrist Splint', 
-                    imageUrl: 'https://i.ibb.co/rGsqK6k5/07062c-4b1727a5accf4d90af9811d186dcd3c3-mv2.png', 
+                    imageUrl: 'https://i.ibb.co/tM8rrpZ0/07062c-4b1727a5accf4d90af9811d186dcd3c3-mv2.png', // UPDATED
                     shortDescription: 'Stabilizing support for carpal tunnel and sprains.', 
                     description: 'Designed to stabilize and support the wrist for conditions like carpal tunnel syndrome, sprains, and arthritis. A removable palmar splint provides rigid support while soft, breathable materials ensure all-day comfort.',
                     sku: 'OB-WRI-007',
@@ -839,7 +839,7 @@
 
             function renderProducts() {
                 let baseProducts;
-                if (selectedCategory === 'All') {
+                if (selectedCategory === 'All' || selectedCategory === 'Orthopedic Braces') {
                     baseProducts = allProducts;
                 } else {
                     const categoryData = productCategories.find(cat => cat.category === selectedCategory);
