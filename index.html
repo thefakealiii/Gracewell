@@ -343,7 +343,7 @@
                 <div id="category-buttons" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="100" style="display: none;">
                     </div>
 
-                <div id="product-grid" class="grid gap-8 grid-cols-2 md:grid-cols-3">
+                <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 gap-8">
                     </div>
 
                 <div id="no-products-message" class="text-center col-span-full py-12 hidden">
@@ -571,7 +571,7 @@
                     </div>
                 </div>
                 
-                <div class="md:col-span-1 p-6 md:p-8 flex flex-col max-h-[80vh] overflow-y-auto">
+                <div class.="md:col-span-1 p-6 md:p-8 flex flex-col max-h-[80vh] overflow-y-auto">
                     
                     <div class="pb-6 border-b border-gray-200">
                         <p id="modal-category" class="text-sm font-semibold text-secondary uppercase tracking-wide">Category</p>
@@ -804,8 +804,9 @@
                 }))
             );
             
-            const categories = ['All', ...productCategories.map(cat => cat.category)];
-            let selectedCategory = 'All';
+            // --- UPDATED Categories to only show one ---
+            const categories = ['Orthopedic Braces'];
+            let selectedCategory = 'Orthopedic Braces';
             let searchQuery = '';
 
             // DOM Elements
@@ -832,18 +833,8 @@
             // --- Render Functions ---
 
             function renderCategoryButtons() {
-                categoryButtonsContainer.innerHTML = categories.map(category => `
-                    <button
-                        data-category="${category}"
-                        class="category-btn px-4 py-2 md:px-6 md:py-3 text-sm md:text-base font-semibold rounded-full transition-all duration-300
-                        ${selectedCategory === category 
-                            ? 'bg-primary text-white shadow-md' 
-                            : 'bg-gray-100 text-light-text hover:bg-gray-200 hover:text-dark-text'
-                        }"
-                    >
-                        ${category}
-                    </button>
-                `).join('');
+                // No longer needed, as we only have one category.
+                categoryButtonsContainer.style.display = 'none';
             }
 
             function renderProducts() {
@@ -860,10 +851,7 @@
                     product.description.toLowerCase().includes(searchQuery.toLowerCase())
                 );
                 
-                // Show 12 products if 'All' is selected and no search query
-                let displayedProducts = (selectedCategory === 'All' && !searchQuery)
-                    ? allProducts.slice(0, 12) // Show from allProducts to get a mix
-                    : filteredProducts;
+                let displayedProducts = filteredProducts;
 
                 productGrid.innerHTML = ''; // Clear existing products
 
@@ -964,6 +952,7 @@
             // --- Event Listeners ---
 
             // Category Button Clicks (Event Delegation)
+            // This is now hidden, but the logic remains harmless
             categoryButtonsContainer.addEventListener('click', (e) => {
                 const button = e.target.closest('.category-btn');
                 if (!button) return;
